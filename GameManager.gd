@@ -2,11 +2,10 @@ extends Node
 
 enum GameState { MENU, PLAYING, PAUSED, GAME_OVER }
 var current_state = GameState.MENU
-var player_score = 0
 var autosave_timer = 0.0
 var autosave_interval = 60.0  # Autosave every 60 seconds
 
-var player_stats = {"hp": 100, "attack": 10, "xp": 0, "level": 1}
+var player_stats = {"hp": 100, "attack": 10, "xp": 0, "level": 1, "score" : 0}
 
 func _ready():
 	# Set initial state or load saved game data if needed
@@ -81,24 +80,9 @@ func load_game():
 	else:
 		print("Save file not found. Starting a new game.")
 
-
-func gain_xp(amount):
-	player_stats["xp"] += amount
-	if player_stats["xp"] >= xp_to_next_level():
-		level_up()
-
-func xp_to_next_level():
-	return player_stats["level"] * 100  # Example formula
-
-func level_up():
-	player_stats["level"] += 1
-	player_stats["attack"] += 5
-	player_stats["hp"] += 20
-	print("Leveled up! Current level: ", player_stats["level"])
-
 func update_ui():
 	if $HUD/ScoreLabel:
-		$HUD/ScoreLabel.text = "Score: " + str(player_score)
+		$HUD/ScoreLabel.text = "Score: " + str(player_stats["player_score"])
 	if $HUD/HPLabel:
 		$HUD/HPLabel.text = "HP: " + str(player_stats["hp"])
 
