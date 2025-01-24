@@ -14,6 +14,10 @@ config/name="Bubble Realms: The Lost Knight"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*res://GameManager.gd"
+
 [display]
 
 window/size/mode=3
