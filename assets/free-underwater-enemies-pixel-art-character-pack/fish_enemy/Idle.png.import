@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rsj6ffl6nakl"
-path="res://.godot/imported/Death.png-dd6c3aae4d461e80d8c1fede0a74fd7d.ctex"
+uid="uid://bledpfenko50e"
+path="res://.godot/imported/Idle.png-a301abd28c33beb7ac6ecd3bcfb0bf21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://free-underwater-enemies-pixel-art-character-pack/mermaid_enemy/Death.png"
-dest_files=["res://.godot/imported/Death.png-dd6c3aae4d461e80d8c1fede0a74fd7d.ctex"]
+source_file="res://assets/free-underwater-enemies-pixel-art-character-pack/fish_enemy/Idle.png"
+dest_files=["res://.godot/imported/Idle.png-a301abd28c33beb7ac6ecd3bcfb0bf21.ctex"]
 
 [params]
 

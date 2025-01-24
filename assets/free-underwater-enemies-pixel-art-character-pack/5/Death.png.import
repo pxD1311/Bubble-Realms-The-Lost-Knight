@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://walip1yiojwn"
-path="res://.godot/imported/Idle.png-8588d23510b2264f3c40264cd6f1e660.ctex"
+uid="uid://c76lrg58oiq8i"
+path="res://.godot/imported/Death.png-5549e6c9219bffe5c2740836b2a8a358.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://free-underwater-enemies-pixel-art-character-pack/5/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-8588d23510b2264f3c40264cd6f1e660.ctex"]
+source_file="res://assets/free-underwater-enemies-pixel-art-character-pack/5/Death.png"
+dest_files=["res://.godot/imported/Death.png-5549e6c9219bffe5c2740836b2a8a358.ctex"]
 
 [params]
 

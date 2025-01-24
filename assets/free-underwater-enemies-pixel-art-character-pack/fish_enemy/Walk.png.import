@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6u5uixuutk0m"
-path="res://.godot/imported/Attack.png-488af43a002dc544a60e370f9db49f3f.ctex"
+uid="uid://dppylogx0tb0o"
+path="res://.godot/imported/Walk.png-66b0013afa128db8ed033a23a7bbf7fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://free-underwater-enemies-pixel-art-character-pack/5/Attack.png"
-dest_files=["res://.godot/imported/Attack.png-488af43a002dc544a60e370f9db49f3f.ctex"]
+source_file="res://assets/free-underwater-enemies-pixel-art-character-pack/fish_enemy/Walk.png"
+dest_files=["res://.godot/imported/Walk.png-66b0013afa128db8ed033a23a7bbf7fc.ctex"]
 
 [params]
 
