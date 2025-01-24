@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://chpvqib528vjc"]
+[gd_scene load_steps=36 format=3 uid="uid://chpvqib528vjc"]
 
 [ext_resource type="Texture2D" uid="uid://do8k5oktkydjd" path="res://assets/tileset/Tileset_pth.png" id="1_12euc"]
 [ext_resource type="PackedScene" uid="uid://rs3y5vwajv1w" path="res://scenes/shop.tscn" id="2_mubyf"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://bpgb6rx85jnjh" path="res://assets/images/3 Objects/Boxes/4.png" id="27_yop1h"]
 [ext_resource type="Texture2D" uid="uid://ct56msk67rq04" path="res://assets/images/3 Objects/Boxes/5.png" id="28_n7v2n"]
 [ext_resource type="Texture2D" uid="uid://d05ngndiq6b35" path="res://assets/images/3 Objects/Bushes/7.png" id="29_rja1o"]
+[ext_resource type="PackedScene" uid="uid://c7k3jhihvelis" path="res://scenes/bubble.tscn" id="30_vathm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h271k"]
 texture = ExtResource("1_12euc")
@@ -274,6 +275,43 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_h271k")
 
+[sub_resource type="Animation" id="Animation_afpbd"]
+resource_name = "up_down"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(289, 440), Vector2(289, 278)]
+}
+
+[sub_resource type="Animation" id="Animation_7ksf7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(289, 440)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7qn1o"]
+_data = {
+"RESET": SubResource("Animation_7ksf7"),
+"up_down": SubResource("Animation_afpbd")
+}
+
 [node name="Hub" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -427,3 +465,11 @@ texture = ExtResource("21_tfshf")
 [node name="34" type="Sprite2D" parent="decoration_objects"]
 position = Vector2(807, 603)
 texture = ExtResource("29_rja1o")
+
+[node name="bubble_up_down" parent="." instance=ExtResource("30_vathm")]
+position = Vector2(289, 440)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bubble_up_down"]
+libraries = {
+"": SubResource("AnimationLibrary_7qn1o")
+}
