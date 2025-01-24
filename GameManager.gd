@@ -5,7 +5,7 @@ var current_state = GameState.MENU
 var autosave_timer = 0.0
 var autosave_interval = 60.0  # Autosave every 60 seconds
 
-var player_stats = {"hp": 100, "attack": 10, "xp": 0, "level": 1, "score" : 0, "coins" : 0, "gems" : 0}
+var player_stats = {"hp": 100, "attack": 10, "xp": 0, "level": 1, "score" : 0}
 
 func _ready():
 	# Set initial state or load saved game data if needed
@@ -88,10 +88,6 @@ func update_ui():
 	if $HUD/HPLabel:
 		$HUD/HPLabel.text = "HP: " + str(player_stats["hp"])
 
-func add_coin():
-	player_stats["coins"] += 1
-	player_stats["score"] += 10
-
-func add_gem():
-	player_stats["gems"] += 1
-	player_stats["score"] += 10
+# Example function for achievements (can be extended later)
+func unlock_achievement(achievement_name):
+	print("Achievement unlocked: ", achievement_name)
