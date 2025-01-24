@@ -9,8 +9,8 @@ var player_stats = {"hp": 100, "attack": 10, "xp": 0, "level": 1, "score" : 0, "
 
 func _ready():
 	# Set initial state or load saved game data if needed
-	load_scene("res://scenes/level_1.tscn")
-	#load_main_menu()
+	#load_scene("res://scenes/level_1.tscn")
+	load_main_menu()
 
 func _process(delta):
 	if current_state == GameState.PLAYING:

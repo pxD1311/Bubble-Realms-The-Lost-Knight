@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://chpvqib528vjc"]
+[gd_scene load_steps=43 format=3 uid="uid://chpvqib528vjc"]
 
 [ext_resource type="Texture2D" uid="uid://do8k5oktkydjd" path="res://assets/tileset/Tileset_pth.png" id="1_12euc"]
 [ext_resource type="PackedScene" uid="uid://rs3y5vwajv1w" path="res://scenes/shop.tscn" id="2_mubyf"]
@@ -353,6 +353,13 @@ _data = {
 "up_down": SubResource("Animation_k6uu7")
 }
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_toof4"]
+normal = Vector2(1, 0)
+distance = 205.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5v6tc"]
+distance = 124.057
+
 [node name="Hub" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -538,3 +545,14 @@ position_smoothing_enabled = true
 
 [node name="portal" parent="." instance=ExtResource("32_coy5d")]
 position = Vector2(1116, 253)
+
+[node name="worldborder" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldborder"]
+position = Vector2(-208, 433)
+shape = SubResource("WorldBoundaryShape2D_toof4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="worldborder"]
+position = Vector2(1279, 300)
+rotation = -1.5731
+shape = SubResource("WorldBoundaryShape2D_5v6tc")
