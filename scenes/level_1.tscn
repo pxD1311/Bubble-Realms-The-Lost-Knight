@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bloabmwjfkg7k"]
+[gd_scene load_steps=5 format=3 uid="uid://mxgnkidjv85r"]
 
-[ext_resource type="PackedScene" uid="uid://b4vux1w3on4xj" path="res://scenes/character.tscn" id="1_domwe"]
+[ext_resource type="PackedScene" uid="uid://ca4001x6u8rb2" path="res://scenes/character.tscn" id="1_domwe"]
 [ext_resource type="Texture2D" uid="uid://omd4qrxtweg" path="res://assets/tileset/Tileset.png" id="2_l65qr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j0jm3"]

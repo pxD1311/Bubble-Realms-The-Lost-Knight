@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://chpvqib528vjc"]
+[gd_scene load_steps=40 format=3 uid="uid://chpvqib528vjc"]
 
 [ext_resource type="Texture2D" uid="uid://do8k5oktkydjd" path="res://assets/tileset/Tileset_pth.png" id="1_12euc"]
 [ext_resource type="PackedScene" uid="uid://rs3y5vwajv1w" path="res://scenes/shop.tscn" id="2_mubyf"]
@@ -30,7 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://ct56msk67rq04" path="res://assets/images/3 Objects/Boxes/5.png" id="28_n7v2n"]
 [ext_resource type="Texture2D" uid="uid://d05ngndiq6b35" path="res://assets/images/3 Objects/Bushes/7.png" id="29_rja1o"]
 [ext_resource type="PackedScene" uid="uid://c7k3jhihvelis" path="res://scenes/bubble.tscn" id="30_vathm"]
-[ext_resource type="PackedScene" path="res://scenes/character.tscn" id="31_rf1li"]
+[ext_resource type="PackedScene" uid="uid://ca4001x6u8rb2" path="res://scenes/character.tscn" id="31_rf1li"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h271k"]
 texture = ExtResource("1_12euc")
@@ -276,8 +276,9 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_h271k")
 
-[sub_resource type="Animation" id="Animation_afpbd"]
+[sub_resource type="Animation" id="Animation_4quoi"]
 resource_name = "up_down"
+length = 3.0
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -286,13 +287,13 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(289, 440), Vector2(289, 278)]
+"values": [Vector2(288, 311), Vector2(288, 433)]
 }
 
-[sub_resource type="Animation" id="Animation_7ksf7"]
+[sub_resource type="Animation" id="Animation_u6qjo"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -304,13 +305,51 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(289, 440)]
+"values": [Vector2(288, 311)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7qn1o"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3wmqt"]
 _data = {
-"RESET": SubResource("Animation_7ksf7"),
-"up_down": SubResource("Animation_afpbd")
+"RESET": SubResource("Animation_u6qjo"),
+"up_down": SubResource("Animation_4quoi")
+}
+
+[sub_resource type="Animation" id="Animation_k6uu7"]
+resource_name = "up_down"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(139, 440), Vector2(139, 591)]
+}
+
+[sub_resource type="Animation" id="Animation_a141c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(139, 440)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sn05k"]
+_data = {
+"RESET": SubResource("Animation_a141c"),
+"up_down": SubResource("Animation_k6uu7")
 }
 
 [node name="Hub" type="Node2D"]
@@ -467,20 +506,31 @@ texture = ExtResource("21_tfshf")
 position = Vector2(807, 603)
 texture = ExtResource("29_rja1o")
 
-[node name="bubble_up_down" parent="." instance=ExtResource("30_vathm")]
-position = Vector2(289, 440)
+[node name="platforms" type="Node" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="bubble_up_down"]
+[node name="bubble_up_down" parent="platforms" instance=ExtResource("30_vathm")]
+position = Vector2(288, 311)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/bubble_up_down"]
 libraries = {
-"": SubResource("AnimationLibrary_7qn1o")
+"": SubResource("AnimationLibrary_3wmqt")
 }
 autoplay = "up_down"
 
-[node name="Character" parent="bubble_up_down" instance=ExtResource("31_rf1li")]
-z_index = 5
-position = Vector2(-213, -4)
+[node name="bubble_up_down2" parent="platforms" instance=ExtResource("30_vathm")]
+position = Vector2(139, 440)
 
-[node name="Camera2D" type="Camera2D" parent="bubble_up_down/Character"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/bubble_up_down2"]
+libraries = {
+"": SubResource("AnimationLibrary_sn05k")
+}
+autoplay = "up_down"
+
+[node name="Character" parent="." instance=ExtResource("31_rf1li")]
+z_index = 5
+position = Vector2(76, 274)
+
+[node name="Camera2D" type="Camera2D" parent="Character"]
 zoom = Vector2(4, 4)
 limit_smoothed = true
 position_smoothing_enabled = true
