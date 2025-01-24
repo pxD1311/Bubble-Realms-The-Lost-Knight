@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://chpvqib528vjc"]
+[gd_scene load_steps=41 format=3 uid="uid://chpvqib528vjc"]
 
 [ext_resource type="Texture2D" uid="uid://do8k5oktkydjd" path="res://assets/tileset/Tileset_pth.png" id="1_12euc"]
 [ext_resource type="PackedScene" uid="uid://rs3y5vwajv1w" path="res://scenes/shop.tscn" id="2_mubyf"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://d05ngndiq6b35" path="res://assets/images/3 Objects/Bushes/7.png" id="29_rja1o"]
 [ext_resource type="PackedScene" uid="uid://c7k3jhihvelis" path="res://scenes/bubble.tscn" id="30_vathm"]
 [ext_resource type="PackedScene" uid="uid://ca4001x6u8rb2" path="res://scenes/character.tscn" id="31_rf1li"]
+[ext_resource type="PackedScene" uid="uid://dp3t42xdm01sk" path="res://scenes/portal.tscn" id="32_coy5d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h271k"]
 texture = ExtResource("1_12euc")
@@ -276,6 +277,21 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_h271k")
 
+[sub_resource type="Animation" id="Animation_u6qjo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(288, 311)]
+}
+
 [sub_resource type="Animation" id="Animation_4quoi"]
 resource_name = "up_down"
 length = 3.0
@@ -293,7 +309,13 @@ tracks/0/keys = {
 "values": [Vector2(288, 311), Vector2(288, 433)]
 }
 
-[sub_resource type="Animation" id="Animation_u6qjo"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3wmqt"]
+_data = {
+"RESET": SubResource("Animation_u6qjo"),
+"up_down": SubResource("Animation_4quoi")
+}
+
+[sub_resource type="Animation" id="Animation_a141c"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -305,13 +327,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(288, 311)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3wmqt"]
-_data = {
-"RESET": SubResource("Animation_u6qjo"),
-"up_down": SubResource("Animation_4quoi")
+"values": [Vector2(139, 440)]
 }
 
 [sub_resource type="Animation" id="Animation_k6uu7"]
@@ -329,21 +345,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(139, 440), Vector2(139, 591)]
-}
-
-[sub_resource type="Animation" id="Animation_a141c"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(139, 440)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sn05k"]
@@ -534,3 +535,6 @@ position = Vector2(76, 274)
 zoom = Vector2(4, 4)
 limit_smoothed = true
 position_smoothing_enabled = true
+
+[node name="portal" parent="." instance=ExtResource("32_coy5d")]
+position = Vector2(1116, 253)
