@@ -277,6 +277,21 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_h271k")
 
+[sub_resource type="Animation" id="Animation_u6qjo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(288, 311)]
+}
+
 [sub_resource type="Animation" id="Animation_4quoi"]
 resource_name = "up_down"
 length = 3.0
@@ -294,7 +309,13 @@ tracks/0/keys = {
 "values": [Vector2(288, 311), Vector2(288, 433)]
 }
 
-[sub_resource type="Animation" id="Animation_u6qjo"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3wmqt"]
+_data = {
+"RESET": SubResource("Animation_u6qjo"),
+"up_down": SubResource("Animation_4quoi")
+}
+
+[sub_resource type="Animation" id="Animation_a141c"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -306,13 +327,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(288, 311)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3wmqt"]
-_data = {
-"RESET": SubResource("Animation_u6qjo"),
-"up_down": SubResource("Animation_4quoi")
+"values": [Vector2(139, 440)]
 }
 
 [sub_resource type="Animation" id="Animation_k6uu7"]
@@ -330,21 +345,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(139, 440), Vector2(139, 591)]
-}
-
-[sub_resource type="Animation" id="Animation_a141c"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(139, 440)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sn05k"]
