@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duri6xjdcdwb4"
-path="res://.godot/imported/Hurt.png-24e4b5186f4b63057073cd050abc4bfd.ctex"
+uid="uid://b8efh6kkcogdg"
+path="res://.godot/imported/Attack.png-8099d93e447e48878f8574fb0a6b0e5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://free-underwater-enemies-pixel-art-character-pack/fish_enemy/Hurt.png"
-dest_files=["res://.godot/imported/Hurt.png-24e4b5186f4b63057073cd050abc4bfd.ctex"]
+source_file="res://assets/free-underwater-enemies-pixel-art-character-pack/mermaid_enemy/Attack.png"
+dest_files=["res://.godot/imported/Attack.png-8099d93e447e48878f8574fb0a6b0e5b.ctex"]
 
 [params]
 

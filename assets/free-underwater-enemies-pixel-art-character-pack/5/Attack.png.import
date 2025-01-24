@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceihvlo1jglru"
-path="res://.godot/imported/Idle.png-d3c9ebd74674bad8a415dc36d60d57ea.ctex"
+uid="uid://b6u5uixuutk0m"
+path="res://.godot/imported/Attack.png-9923d7fcaf148f38951ae86f084d19aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://free-underwater-enemies-pixel-art-character-pack/mermaid_enemy/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-d3c9ebd74674bad8a415dc36d60d57ea.ctex"]
+source_file="res://assets/free-underwater-enemies-pixel-art-character-pack/5/Attack.png"
+dest_files=["res://.godot/imported/Attack.png-9923d7fcaf148f38951ae86f084d19aa.ctex"]
 
 [params]
 

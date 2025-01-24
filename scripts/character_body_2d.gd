@@ -84,6 +84,76 @@ func apply_gravity(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
+func gain_xp(amount):
+	GameManager.player_stats["xp"] += amount
+	if GameManager.player_stats["xp"] >= xp_to_next_level():
+		level_up()
+
+func xp_to_next_level():
+	return GameManager.player_stats["level"] * 100  # Example formula
+
+func level_up():
+	GameManager.player_stats["level"] += 1
+	GameManager.player_stats["attack"] += 5
+	GameManager.player_stats["hp"] += 20
+	print("Leveled up! Current level: ", GameManager.player_stats["level"])
+
+func increase_attack(amount):
+	GameManager.player_stats["attack"] += amount
+	print("Attack increased by ", amount, ". Current attack: ", GameManager.player_stats["attack"])
+
+func deal_damage_to_enemy(enemy_hp, critical_hit_chance = 0.1):
+	var damage = GameManager.player_stats["attack"]
+	if randf() < critical_hit_chance:  # 10% chance for a critical hit
+		damage *= 2
+		print("Critical hit!")
+	enemy_hp -= damage
+	print("Dealt ", damage, " damage. Enemy HP left: ", enemy_hp)
+	return enemy_hp  # Return remaining enemy HP
+
+func take_damage(amount):
+	GameManager.player_stats["hp"] -= amount
+	if GameManager.player_stats["hp"] <= 0:
+		GameManager.player_stats["hp"] = 0
+		print("Player is dead!")
+		# Trigger game over logic here
+	else:
+		print("Player took ", amount, " damage. HP: ", GameManager.player_stats["hp"])
+
+func heal_player(amount, max_hp = 200):
+	GameManager.player_stats["hp"] += amount
+	if GameManager.player_stats["hp"] > max_hp:
+		GameManager.player_stats["hp"] = max_hp
+	print("Player healed by ", amount, ". HP: ", GameManager.player_stats["hp"])
+
+func revive_player(revive_hp = 50):
+	if GameManager.player_stats["hp"] == 0:
+		GameManager.player_stats["hp"] = revive_hp
+		print("Player revived! HP: ", GameManager.player_stats["hp"])
+	else:
+		print("Player is not dead. Revival skipped.")
+
+func increase_score(points):
+	GameManager.player_score += points
+	print("Score increased by ", points, ". Current score: ", GameManager.player_score)
+
+func decrease_score(points):
+	GameManager.player_score -= points
+	if GameManager.player_score < 0:
+		GameManager.player_score = 0
+	print("Score decreased by ", points, ". Current score: ", GameManager.player_score)
+
+func reset_score():
+	GameManager.player_score = 0
+	print("Score reset. Current score: ", GameManager.player_score)
+
+func is_player_dead():
+	return GameManager.player_stats["hp"] <= 0
+	
+func get_player_stats():
+	print("Player Stats: ", GameManager.player_stats)
+	return GameManager.player_stats
+
 #func shoot_projectile():
 	#var projectile = preload("res://projectile.tscn").instantiate()
 	#projectile.position = global_position

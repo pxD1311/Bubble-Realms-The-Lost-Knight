@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c76lrg58oiq8i"
-path="res://.godot/imported/Death.png-3efe7a7e6ff7b49eaa3f78ba685ecfb5.ctex"
+uid="uid://5q8py5rhbqby"
+path="res://.godot/imported/Hurt.png-a15769e26a902b53676bdf157c7c0905.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://free-underwater-enemies-pixel-art-character-pack/5/Death.png"
-dest_files=["res://.godot/imported/Death.png-3efe7a7e6ff7b49eaa3f78ba685ecfb5.ctex"]
+source_file="res://assets/free-underwater-enemies-pixel-art-character-pack/mermaid_enemy/Hurt.png"
+dest_files=["res://.godot/imported/Hurt.png-a15769e26a902b53676bdf157c7c0905.ctex"]
 
 [params]
 

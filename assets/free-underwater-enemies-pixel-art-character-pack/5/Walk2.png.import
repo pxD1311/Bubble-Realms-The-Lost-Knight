@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu5gxeami2wm4"
-path="res://.godot/imported/Projectile.png-8cc0043fb8282182f3ef8ae2f6e56ed4.ctex"
+uid="uid://co7buwx1n5cgi"
+path="res://.godot/imported/Walk2.png-f3c24e65a74a426ed5bea42946203984.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://free-underwater-enemies-pixel-art-character-pack/mermaid_enemy/Projectile.png"
-dest_files=["res://.godot/imported/Projectile.png-8cc0043fb8282182f3ef8ae2f6e56ed4.ctex"]
+source_file="res://assets/free-underwater-enemies-pixel-art-character-pack/5/Walk2.png"
+dest_files=["res://.godot/imported/Walk2.png-f3c24e65a74a426ed5bea42946203984.ctex"]
 
 [params]
 

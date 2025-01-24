@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7k3jhihvelis"]
+
+[ext_resource type="Texture2D" uid="uid://7inxxt7560ob" path="res://assets/images/bubbles/bubble_7.png" id="1_ew2f7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vx2lh"]
+size = Vector2(29, 5.5)
+
+[node name="bubble_up_down" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 6)
+scale = Vector2(0.625, 0.609375)
+texture = ExtResource("1_ew2f7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 20)
+shape = SubResource("RectangleShape2D_vx2lh")
+one_way_collision = true
