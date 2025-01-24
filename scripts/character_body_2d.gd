@@ -8,8 +8,8 @@ extends CharacterBody2D
 @export var gravity := 1200.0
 
 # Combat parameters
-@export var melee_cooldown := 0.5
-@export var ranged_cooldown := 0.8
+@export var melee_cooldown := 1.0
+@export var ranged_cooldown := 1.0
 var can_melee := true
 var can_shoot := true
 
@@ -18,9 +18,9 @@ enum {IDLE, RUN, CROUCH, MELEE, RANGED}
 var state := IDLE
 var facing_right := true
 
-@onready var animated_sprite := $AnimatedSprite2D
-@onready var collision_stand := $CollisionStand
-@onready var collision_crouch := $CollisionCrouch
+@onready var animated_sprite := $AnimatedSprite2D2
+@onready var collision_stand := $CollisionStand2
+@onready var collision_crouch := $CollisionCrouch2
 
 func _physics_process(delta):
 	handle_movement(delta)
