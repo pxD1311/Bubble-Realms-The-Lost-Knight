@@ -6,20 +6,18 @@
 script/source = "extends CharacterBody2D
 
 # Movement parameters
-@export var max_speed := 300.0
-@export var acceleration := 2000.0
-@export var friction := 2000.0
-@export var jump_force := -600.0
-@export var gravity := 1200.0
+@export var move_speed := 300.0
+@export var jump_force := -300.0
+@export var gravity := 980.0
+@export var crouch_speed := 250.0
 
 # Combat parameters
-@export var melee_cooldown := 1.0
-@export var ranged_cooldown := 1.0
+@export var melee_cooldown := 0.1
 var can_melee := true
-var can_shoot := true
+var is_attacking := false
 
 # Animation states
-enum {IDLE, RUN, CROUCH, MELEE, RANGED}
+enum {IDLE, RUN, JUMP, CROUCH, MELEE}
 var state := IDLE
 var facing_right := true
 
@@ -28,72 +26,79 @@ var facing_right := true
 @onready var collision_crouch := $CollisionCrouch2
 
 func _physics_process(delta):
+	handle_input()
 	handle_movement(delta)
-	handle_attacks()
 	update_animation()
-	apply_gravity(delta)
 	move_and_slide()
+
+func handle_input():
+	# Melee attack
+	if Input.is_action_just_pressed(\"melee\") and can_melee and is_on_floor():
+		start_melee_attack()
 
 func handle_movement(delta):
 	var input_dir = Input.get_axis(\"move_left\", \"move_right\")
 	
 	# Horizontal movement
-	if input_dir != 0:
-		velocity.x = move_toward(velocity.x, input_dir * max_speed, acceleration * delta)
-		facing_right = input_dir > 0
-	else:
-		velocity.x = move_toward(velocity.x, 0, friction * delta)
+	if not is_attacking:
+		if Input.is_action_pressed(\"crouch\") and is_on_floor():
+			handle_crouch(input_dir, delta)
+		else:
+			handle_stand_movement(input_dir, delta)
 	
-	# Crouching
-	if Input.is_action_pressed(\"crouch\") and is_on_floor():
-		state = CROUCH
-		collision_stand.disabled = true
-		collision_crouch.disabled = false
-	else:
-		collision_stand.disabled = false
-		collision_crouch.disabled = true
+	# Jumping
+	if Input.is_action_just_pressed(\"jump\") and is_on_floor() and !is_attacking:
+		velocity.y = jump_force
+		state = JUMP
+	
+	# Apply gravity
+	if not is_on_floor():
+		velocity.y += gravity * delta
 
-func handle_attacks():
-	if Input.is_action_just_pressed(\"melee\") and can_melee:
-		state = MELEE
-		can_melee = false
-		await get_tree().create_timer(melee_cooldown).timeout
-		can_melee = true
-		state = IDLE
+func handle_crouch(input_dir, delta):
+	state = CROUCH
+	collision_stand.disabled = true
+	collision_crouch.disabled = false
+	velocity.x = move_toward(velocity.x, input_dir * crouch_speed, move_speed * delta)
+
+func handle_stand_movement(input_dir, delta):
+	collision_stand.disabled = false
+	collision_crouch.disabled = true
+	velocity.x = move_toward(velocity.x, input_dir * move_speed, move_speed * 2 * delta)
 	
-	#if Input.is_action_just_pressed(\"ranged_attack\") and can_shoot:
-		#state = RANGED
-		#can_shoot = false
-		#shoot_projectile()
-		#await get_tree().create_timer(ranged_cooldown).timeout
-		#can_shoot = true
-		#state = IDLE
+	if input_dir != 0:
+		facing_right = input_dir > 0
+		state = RUN if is_on_floor() else JUMP
+	else:
+		state = IDLE if is_on_floor() else JUMP
+
+func start_melee_attack():
+	state = MELEE
+	is_attacking = true
+	can_melee = false
+	velocity = Vector2.ZERO
+	animated_sprite.play(\"melee_attack\")
+	await animated_sprite.animation_finished
+	is_attacking = false
+	await get_tree().create_timer(melee_cooldown).timeout
+	can_melee = true
 
 func update_animation():
 	animated_sprite.flip_h = !facing_right
 	
+	if is_attacking: return
+	
 	match state:
 		MELEE:
 			animated_sprite.play(\"melee_attack\")
-		RANGED:
-			animated_sprite.play(\"ranged_attack\")
 		CROUCH:
 			animated_sprite.play(\"crouch\")
+		JUMP:
+			animated_sprite.play(\"jump\")
+		RUN:
+			animated_sprite.play(\"run\")
 		_:
-			if abs(velocity.x) > 10:
-				animated_sprite.play(\"run\")
-			else:
-				animated_sprite.play(\"idle\")
-
-func apply_gravity(delta):
-	if not is_on_floor():
-		velocity.y += gravity * delta
-
-#func shoot_projectile():
-	#var projectile = preload(\"res://projectile.tscn\").instantiate()
-	#projectile.position = global_position
-	#projectile.direction = Vector2.RIGHT if facing_right else Vector2.LEFT
-	#get_parent().add_child(projectile)
+			animated_sprite.play(\"idle\")
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8e1el"]
@@ -287,7 +292,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"crouch",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -333,7 +338,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -362,7 +367,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"jump",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -389,9 +394,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7a5hu")
 }],
-"loop": true,
+"loop": false,
 "name": &"melee_attack",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -425,14 +430,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4pkp5"]
 radius = 8.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tx1a1"]
-radius = 9.0
+radius = 8.0
 height = 18.0
 
 [node name="Character" type="CharacterBody2D"]
@@ -440,7 +445,7 @@ script = SubResource("GDScript_7woi2")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_62bf1")
-animation = &"crouch"
+animation = &"jump"
 autoplay = "idle"
 
 [node name="CollisionStand2" type="CollisionShape2D" parent="."]
@@ -448,6 +453,6 @@ position = Vector2(-1, 1)
 shape = SubResource("CapsuleShape2D_4pkp5")
 
 [node name="CollisionCrouch2" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 5)
+position = Vector2(-1, 7)
 shape = SubResource("CapsuleShape2D_tx1a1")
 disabled = true
