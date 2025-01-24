@@ -9,8 +9,9 @@ var player_stats = {"hp": 100, "attack": 10, "xp": 0, "level": 1, "score" : 0}
 
 func _ready():
 	# Set initial state or load saved game data if needed
-	#load_scene("res://scenes/level_1.tscn")
-	load_main_menu()
+	#load_scene("res://scenes/levels/level_1.tscn")
+	load_scene("res://scenes/levels/level_2.tscn")
+	#load_main_menu()
 
 func _process(delta):
 	if current_state == GameState.PLAYING:
@@ -43,7 +44,7 @@ func resume_game():
 	get_tree().paused = false
 
 func load_hub():
-	load_scene("res://scenes/hub.tscn")
+	load_scene("res://scenes/levels/hub.tscn")
 
 func load_main_menu():
 	load_scene("res://scenes/main_menu.tscn")
