@@ -49,9 +49,10 @@ func load_main_menu():
 
 func load_scene(scene_path):
 	if ResourceLoader.exists(scene_path):
-		get_tree().change_scene(scene_path)
+		get_tree().change_scene_to_file(scene_path)
 	else:
 		print("Scene path does not exist: ", scene_path)
+
 
 func save_game():
 	var save_data = {"player_stats": player_stats, "current_state": current_state}
