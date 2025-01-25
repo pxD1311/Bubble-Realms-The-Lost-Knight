@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dlngoueqihdaj"]
+[gd_scene load_steps=56 format=3 uid="uid://dlngoueqihdaj"]
 
 [ext_resource type="Texture2D" uid="uid://do8k5oktkydjd" path="res://assets/tileset/Tileset_pth.png" id="1_12euc"]
 [ext_resource type="PackedScene" uid="uid://rs3y5vwajv1w" path="res://scenes/shop.tscn" id="2_mubyf"]
@@ -45,6 +45,8 @@
 [ext_resource type="Texture2D" uid="uid://bkxxn7cy5xsvs" path="res://assets/hub_background_layers/Layer_0010_1.png" id="43_0o8ov"]
 [ext_resource type="Texture2D" uid="uid://dfc6qtse0ssgs" path="res://assets/hub_background_layers/Layer_0011_0.png" id="44_n8f57"]
 [ext_resource type="PackedScene" uid="uid://dc02dtut8jgn5" path="res://scenes/sign_board.tscn" id="45_fjcjk"]
+[ext_resource type="Script" path="res://scripts/sign_board.gd" id="46_l0fa5"]
+[ext_resource type="FontFile" uid="uid://b6nrqngnoj5cy" path="res://assets/fonts/PixelOperator8.ttf" id="47_kv00i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h271k"]
 texture = ExtResource("1_12euc")
@@ -535,4 +537,59 @@ centered = false
 
 [node name="SignBoard" parent="sign_boards" instance=ExtResource("45_fjcjk")]
 position = Vector2(250, 286)
-text = "The Depths of Despair\"Far beneath the shimmering waves, a wizard’s fate was sealed. Once a master of arcane powers, his miscalculation led him to the deepest trench of the ocean—a place where light dares not reach and the air is thick with forgotten magic. Now trapped, only one path remains: rise to the surface or remain forever lost to the abyss.\""
+script = ExtResource("46_l0fa5")
+
+[node name="Label" type="Label" parent="sign_boards/SignBoard"]
+offset_left = -150.0
+offset_top = -82.0
+offset_right = 150.0
+offset_bottom = -19.0
+theme_override_fonts/font = ExtResource("47_kv00i")
+theme_override_font_sizes/font_size = 8
+text = "Far beneath the waves, a wizard’s 
+miscalculation trapped him in the
+ocean’s deepest trench. Light is lost,
+and only one choice remains:
+rise to the surface or remain lost 
+in the abyss."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SignBoard2" parent="sign_boards" instance=ExtResource("45_fjcjk")]
+position = Vector2(348, 318)
+script = ExtResource("46_l0fa5")
+
+[node name="Label" type="Label" parent="sign_boards/SignBoard2"]
+offset_left = -150.0
+offset_top = -82.0
+offset_right = 150.0
+offset_bottom = -19.0
+theme_override_fonts/font = ExtResource("47_kv00i")
+theme_override_font_sizes/font_size = 8
+text = "\"Survival here requires cunning.
+ Bubbles hold the magic that 
+can guide you. 
+Follow their path to reclaim
+ strength and rise again.\""
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SignBoard3" parent="sign_boards" instance=ExtResource("45_fjcjk")]
+position = Vector2(244, 446)
+script = ExtResource("46_l0fa5")
+
+[node name="Label" type="Label" parent="sign_boards/SignBoard3"]
+offset_left = -150.0
+offset_top = -82.0
+offset_right = 150.0
+offset_bottom = -19.0
+theme_override_fonts/font = ExtResource("47_kv00i")
+theme_override_font_sizes/font_size = 8
+text = "\"Each bubble that rises weakens the
+ wizard’s magic. To escape, he must regain 
+his lost knowledge—but beware, 
+these fragile orbs can betray you.\"
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1

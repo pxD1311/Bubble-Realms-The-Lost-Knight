@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bxmccvb40m404"]
+[gd_scene load_steps=41 format=3 uid="uid://bxmccvb40m404"]
 
 [ext_resource type="PackedScene" uid="uid://b4vux1w3on4xj" path="res://scenes/character.tscn" id="1_domwe"]
 [ext_resource type="Texture2D" uid="uid://omd4qrxtweg" path="res://assets/tileset/Tileset.png" id="2_l65qr"]
@@ -28,6 +28,9 @@
 [ext_resource type="Texture2D" uid="uid://dwydksx5w0ujo" path="res://assets/level_parallax_cave/7ForeGround.png" id="26_54tw3"]
 [ext_resource type="Texture2D" uid="uid://cl1cmms1nm5os" path="res://assets/level_parallax_cave/BlackLight.png" id="27_q1y3a"]
 [ext_resource type="PackedScene" uid="uid://dohm8ruyv6aom" path="res://scenes/bubble_pop.tscn" id="28_crmov"]
+[ext_resource type="PackedScene" uid="uid://dc02dtut8jgn5" path="res://scenes/sign_board.tscn" id="29_san4n"]
+[ext_resource type="Script" path="res://scripts/sign_board.gd" id="30_dtgb1"]
+[ext_resource type="FontFile" uid="uid://b6nrqngnoj5cy" path="res://assets/fonts/PixelOperator8.ttf" id="31_j7ihm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j0jm3"]
 texture = ExtResource("2_l65qr")
@@ -492,5 +495,44 @@ scale = Vector2(-0.177713, 0.1713)
 [node name="bubble_pop2" parent="." instance=ExtResource("28_crmov")]
 position = Vector2(259, -105)
 scale = Vector2(0.209256, 0.203447)
+
+[node name="sign_boards" type="Node" parent="."]
+
+[node name="SignBoard" parent="sign_boards" instance=ExtResource("29_san4n")]
+position = Vector2(36, -10)
+script = ExtResource("30_dtgb1")
+
+[node name="Label" type="Label" parent="sign_boards/SignBoard"]
+offset_left = -113.0
+offset_top = 14.0
+offset_right = 213.0
+offset_bottom = 77.0
+theme_override_fonts/font = ExtResource("31_j7ihm")
+theme_override_font_sizes/font_size = 8
+text = "\"Your journey begins with a single bubble.
+Fragile, yet full of power. Follow its path, wizard. 
+It’s your first step toward regaining your strength.
+But beware—these bubbles can be unpredictable.\""
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SignBoard2" parent="sign_boards" instance=ExtResource("29_san4n")]
+position = Vector2(614, -42)
+script = ExtResource("30_dtgb1")
+
+[node name="Label" type="Label" parent="sign_boards/SignBoard2"]
+offset_left = -217.0
+offset_top = 43.0
+offset_right = 83.0
+offset_bottom = 106.0
+theme_override_fonts/font = ExtResource("31_j7ihm")
+theme_override_font_sizes/font_size = 8
+text = "\"Each bubble you rise with brings 
+back a fragment of your forgotten magic.
+The deeper you sink, the more you lose. 
+Will you remember enough to escape,
+ or will the sea claim you?\""
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]

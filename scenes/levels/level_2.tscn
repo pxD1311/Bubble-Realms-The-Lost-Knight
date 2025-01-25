@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://b82hpkpycpl8a"]
+[gd_scene load_steps=52 format=3 uid="uid://b82hpkpycpl8a"]
 
 [ext_resource type="Texture2D" uid="uid://omd4qrxtweg" path="res://assets/tileset/Tileset.png" id="1_0hm6d"]
 [ext_resource type="PackedScene" uid="uid://c7k3jhihvelis" path="res://scenes/bubble.tscn" id="2_ax3l1"]
@@ -30,6 +30,9 @@
 [ext_resource type="Texture2D" uid="uid://b136ivgjlngvw" path="res://assets/level_parallax_cave/6.png" id="28_rglrd"]
 [ext_resource type="Texture2D" uid="uid://dwydksx5w0ujo" path="res://assets/level_parallax_cave/7ForeGround.png" id="29_rum8p"]
 [ext_resource type="Texture2D" uid="uid://cl1cmms1nm5os" path="res://assets/level_parallax_cave/BlackLight.png" id="30_p7v3d"]
+[ext_resource type="PackedScene" uid="uid://dc02dtut8jgn5" path="res://scenes/sign_board.tscn" id="31_xnamu"]
+[ext_resource type="Script" path="res://scripts/sign_board.gd" id="32_ktbq2"]
+[ext_resource type="FontFile" uid="uid://b6nrqngnoj5cy" path="res://assets/fonts/PixelOperator8.ttf" id="33_6u7tr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0cpj"]
 texture = ExtResource("1_0hm6d")
@@ -679,5 +682,66 @@ motion_mirroring = Vector2(1280, 720)
 position = Vector2(8, -10)
 texture = ExtResource("30_p7v3d")
 centered = false
+
+[node name="sign_boards" type="Node" parent="."]
+
+[node name="SignBoard" parent="sign_boards" instance=ExtResource("31_xnamu")]
+position = Vector2(914, 470)
+script = ExtResource("32_ktbq2")
+
+[node name="Label" type="Label" parent="sign_boards/SignBoard"]
+offset_left = -150.0
+offset_top = -82.0
+offset_right = 150.0
+offset_bottom = -19.0
+theme_override_fonts/font = ExtResource("33_6u7tr")
+theme_override_font_sizes/font_size = 8
+text = "\"The deeper you go, the less you remember.
+ The ocean is a cruel keeper of your mind, 
+wizard. Stay focused—
+each bubble may hold the key to 
+reclaiming what you’ve lost.\""
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SignBoard3" parent="sign_boards" instance=ExtResource("31_xnamu")]
+position = Vector2(1042, 214)
+script = ExtResource("32_ktbq2")
+
+[node name="Label" type="Label" parent="sign_boards/SignBoard3"]
+offset_left = -122.0
+offset_top = -79.0
+offset_right = 198.0
+offset_bottom = -16.0
+theme_override_colors/font_color = Color(0.381703, 0.381703, 0.381703, 1)
+theme_override_fonts/font = ExtResource("33_6u7tr")
+theme_override_font_sizes/font_size = 8
+text = "\"Echoes of your past resonate through the bubbles.
+ They whisper forgotten spells and broken dreams.
+ Listen carefully, wizard.
+ Each bubble may lead you closer to your true self,
+ or further into madness.\""
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SignBoard2" parent="sign_boards" instance=ExtResource("31_xnamu")]
+position = Vector2(207, 470)
+script = ExtResource("32_ktbq2")
+
+[node name="Label" type="Label" parent="sign_boards/SignBoard2"]
+offset_left = -150.0
+offset_top = -82.0
+offset_right = 150.0
+offset_bottom = -19.0
+theme_override_fonts/font = ExtResource("33_6u7tr")
+theme_override_font_sizes/font_size = 8
+text = "\"Beware, wizard! The currents grow stronger here. 
+They seek to drag you down into the dark.
+ Trust the bubbles,
+ but don’t let the pull of the sea consume you.\"
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]
