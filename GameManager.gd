@@ -1,21 +1,24 @@
 extends Node
 
+# Enum for game states
 enum GameState { MENU, PLAYING, PAUSED, GAME_OVER }
 var current_state = GameState.MENU
+
+# Autosave variables
 var autosave_timer = 0.0
 var autosave_interval = 60.0  # Autosave every 60 seconds
 
-var player_stats = {"hp": 100, "attack": 10, "xp": 0, "level": 1, "score" : 0}
+# Player stats
+var player_stats = {"hp": 100, "attack": 10, "xp": 0, "level": 1, "score": 0}
+
+# Store the current scene path for restarting
+var current_scene_path = ""
 
 func _ready():
-	# Set initial state or load saved game data if needed
-	load_scene("res://scenes/level_1.tscn")
-	#load_main_menu()
 	# Set the initial state or load saved game data
 	call_deferred("load_scene", "res://scenes/levels/level_1.tscn")
 	# Optionally load a main menu instead
 	# load_main_menu()
-
 
 func _process(delta):
 	if current_state == GameState.PLAYING:
@@ -31,6 +34,7 @@ func _input(event):
 		elif current_state == GameState.PAUSED:
 			resume_game()
 
+# Game state management
 func start_game():
 	current_state = GameState.PLAYING
 	load_main_menu()
@@ -47,19 +51,28 @@ func resume_game():
 	current_state = GameState.PLAYING
 	get_tree().paused = false
 
-func load_hub():
-	load_scene("res://scenes/hub.tscn")
-
+# Scene loading
 func load_main_menu():
 	load_scene("res://scenes/main_menu.tscn")
 
+func load_hub():
+	load_scene("res://scenes/levels/hub.tscn")
+
 func load_scene(scene_path):
 	if ResourceLoader.exists(scene_path):
+		current_scene_path = scene_path  # Store the scene path
 		get_tree().change_scene_to_file(scene_path)
 	else:
 		print("Scene path does not exist: ", scene_path)
 
+func restart_scene():
+	Engine.time_scale = 1  # Reset the time scale
+	if current_scene_path != "":
+		load_scene(current_scene_path)
+	else:
+		print("No scene path to restart!")
 
+# Save and load game
 func save_game():
 	var save_data = {"player_stats": player_stats, "current_state": current_state}
 	var file = FileAccess.open("user://save_game.dat", FileAccess.WRITE)
@@ -87,12 +100,20 @@ func load_game():
 	else:
 		print("Save file not found. Starting a new game.")
 
+# UI updates
 func update_ui():
 	if $HUD/ScoreLabel:
-		$HUD/ScoreLabel.text = "Score: " + str(player_stats["player_score"])
+		$HUD/ScoreLabel.text = "Score: " + str(player_stats["score"])
 	if $HUD/HPLabel:
 		$HUD/HPLabel.text = "HP: " + str(player_stats["hp"])
 
-# Example function for achievements (can be extended later)
-func unlock_achievement(achievement_name):
-	print("Achievement unlocked: ", achievement_name)
+# KillZone handling
+func handle_kill_zone(body):
+	if body.name == "Character":  # Adjust based on your player node's name
+		print("KillZone: Player entered")
+		current_state = GameState.GAME_OVER  # Change game state
+		player_stats["hp"] = 0  # Update player stats (optional)
+		Engine.time_scale = 0.5  # Slow down the game for effect
+
+		# Restart the scene after a short delay
+		get_tree().create_timer(0.5).timeout.connect(restart_scene)
