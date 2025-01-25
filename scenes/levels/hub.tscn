@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://dlngoueqihdaj"]
+[gd_scene load_steps=58 format=3 uid="uid://dlngoueqihdaj"]
 
 [ext_resource type="Texture2D" uid="uid://do8k5oktkydjd" path="res://assets/tileset/Tileset_pth.png" id="1_12euc"]
 [ext_resource type="PackedScene" uid="uid://rs3y5vwajv1w" path="res://scenes/shop.tscn" id="2_mubyf"]
@@ -47,6 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://dc02dtut8jgn5" path="res://scenes/sign_board.tscn" id="45_fjcjk"]
 [ext_resource type="Script" path="res://scripts/sign_board.gd" id="46_l0fa5"]
 [ext_resource type="FontFile" uid="uid://b6nrqngnoj5cy" path="res://assets/fonts/PixelOperator8.ttf" id="47_kv00i"]
+[ext_resource type="Script" path="res://scripts/killzone.gd" id="48_vldpw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h271k"]
 texture = ExtResource("1_12euc")
@@ -247,6 +248,8 @@ _data = {
 "RESET": SubResource("Animation_a141c"),
 "up_down": SubResource("Animation_k6uu7")
 }
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hqo31"]
 
 [node name="Hub" type="Node2D"]
 
@@ -593,3 +596,14 @@ these fragile orbs can betray you.\"
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="killzone" type="Area2D" parent="."]
+position = Vector2(361, 882)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("48_vldpw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+shape = SubResource("WorldBoundaryShape2D_hqo31")
+
+[connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]
