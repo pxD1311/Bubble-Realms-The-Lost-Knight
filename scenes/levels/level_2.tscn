@@ -20,7 +20,7 @@
 [ext_resource type="Script" path="res://scripts/killzone.gd" id="18_4fkwo"]
 [ext_resource type="PackedScene" uid="uid://d3w3efhgvj8ka" path="res://scenes/coin.tscn" id="19_3l6qd"]
 [ext_resource type="PackedScene" uid="uid://b4yfxnk068hvi" path="res://scenes/gem.tscn" id="20_q4o5d"]
-[ext_resource type="PackedScene" uid="uid://vjd8hn0f8rkm" path="res://scenes/enemies/static_enemy.tscn" id="21_ioq42"]
+[ext_resource type="PackedScene" uid="uid://vjd8hn0f8rkm" path="res://scenes/enemies/blue_slime.tscn" id="21_ioq42"]
 [ext_resource type="Script" path="res://scripts/blue_slime.gd" id="22_3xssf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0cpj"]
