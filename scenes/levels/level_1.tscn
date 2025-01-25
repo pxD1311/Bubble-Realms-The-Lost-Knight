@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dp3t42xdm01sk" path="res://scenes/portal.tscn" id="16_camjo"]
 [ext_resource type="PackedScene" uid="uid://b4yfxnk068hvi" path="res://scenes/gem.tscn" id="17_ifwtf"]
 [ext_resource type="Script" path="res://scripts/killzone.gd" id="18_auh3k"]
-[ext_resource type="PackedScene" uid="uid://vjd8hn0f8rkm" path="res://scenes/enemies/blue_slime.tscn" id="19_k75iq"]
+[ext_resource type="PackedScene" uid="uid://vjd8hn0f8rkm" path="res://scenes/enemies/static_enemy.tscn" id="19_k75iq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j0jm3"]
 texture = ExtResource("2_l65qr")
