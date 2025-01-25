@@ -18,6 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://dp3t42xdm01sk" path="res://scenes/portal.tscn" id="16_camjo"]
 [ext_resource type="PackedScene" uid="uid://b4yfxnk068hvi" path="res://scenes/gem.tscn" id="17_ifwtf"]
 [ext_resource type="Script" path="res://scripts/killzone.gd" id="18_auh3k"]
+<<<<<<< HEAD
+[ext_resource type="PackedScene" uid="uid://vjd8hn0f8rkm" path="res://scenes/enemies/static_enemy.tscn" id="19_k75iq"]
+=======
 [ext_resource type="PackedScene" uid="uid://vjd8hn0f8rkm" path="res://scenes/enemies/blue_slime.tscn" id="19_k75iq"]
 [ext_resource type="Texture2D" uid="uid://bb6jeujynmryk" path="res://assets/level_parallax_cave/0.png" id="20_8bnmr"]
 [ext_resource type="Texture2D" uid="uid://g63ermb304om" path="res://assets/level_parallax_cave/00.png" id="21_w1u56"]
@@ -28,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://dwydksx5w0ujo" path="res://assets/level_parallax_cave/7ForeGround.png" id="26_54tw3"]
 [ext_resource type="Texture2D" uid="uid://cl1cmms1nm5os" path="res://assets/level_parallax_cave/BlackLight.png" id="27_q1y3a"]
 [ext_resource type="PackedScene" uid="uid://dohm8ruyv6aom" path="res://scenes/bubble_pop.tscn" id="28_crmov"]
+>>>>>>> 365ae2fc842b8cfde0642d4cffbe046913a8a292
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j0jm3"]
 texture = ExtResource("2_l65qr")

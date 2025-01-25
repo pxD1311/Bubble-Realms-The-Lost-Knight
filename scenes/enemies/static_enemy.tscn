@@ -1,22 +1,25 @@
 [gd_scene load_steps=9 format=3 uid="uid://vjd8hn0f8rkm"]
 
-[ext_resource type="Texture2D" uid="uid://dc4j8xaou265u" path="res://assets/images/enemy/slime_blue.png" id="1_qypq5"]
-[ext_resource type="Script" path="res://scripts/killzone.gd" id="2_kjpeq"]
+[ext_resource type="Script" path="res://scenes/enemies/static_enemy.gd" id="1_p8hds"]
+[ext_resource type="Texture2D" uid="uid://dc4j8xaou265u" path="res://assets/images/enemy/slime_blue.png" id="1_xed5o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3dtl"]
+size = Vector2(14, 11)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l4r70"]
-atlas = ExtResource("1_qypq5")
+atlas = ExtResource("1_xed5o")
 region = Rect2(0, 24, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y16xg"]
-atlas = ExtResource("1_qypq5")
+atlas = ExtResource("1_xed5o")
 region = Rect2(24, 24, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m61kq"]
-atlas = ExtResource("1_qypq5")
+atlas = ExtResource("1_xed5o")
 region = Rect2(48, 24, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_84vu2"]
-atlas = ExtResource("1_qypq5")
+atlas = ExtResource("1_xed5o")
 region = Rect2(72, 24, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jk8ah"]
@@ -39,10 +42,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3dtl"]
-size = Vector2(8, 10)
+[node name="Static Enemy" type="Area2D" groups=["enemies"]]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_p8hds")
 
-[node name="BlueSlime" type="Node2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_l3dtl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jk8ah")
@@ -50,11 +57,7 @@ autoplay = "default"
 frame_progress = 0.76982
 flip_h = true
 
-[node name="killzone" type="Area2D" parent="."]
-script = ExtResource("2_kjpeq")
+[node name="Damage_timer" type="Timer" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
-position = Vector2(0, 6)
-shape = SubResource("RectangleShape2D_l3dtl")
-
-[connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Damage_timer" to="." method="_on_damage_timer_timeout"]

@@ -3,3 +3,61 @@
 [ext_resource type="PackedScene" uid="uid://bxmccvb40m404" path="res://scenes/levels/level_1.tscn" id="1_dss6v"]
 
 [node name="Level 1" instance=ExtResource("1_dss6v")]
+
+[node name="bubble_up_down2" parent="platforms" index="0"]
+collision_layer = 8
+
+[node name="bubble_up_down" parent="platforms" index="1"]
+collision_layer = 8
+
+[node name="coin2" parent="coins" index="0"]
+collision_layer = 8
+collision_mask = 1
+
+[node name="coin4" parent="coins" index="2"]
+collision_layer = 8
+collision_mask = 1
+
+[node name="coin5" parent="coins" index="3"]
+collision_layer = 8
+collision_mask = 1
+
+[node name="coin6" parent="coins" index="4"]
+collision_layer = 8
+collision_mask = 1
+
+[node name="coin7" parent="coins" index="5"]
+collision_layer = 8
+collision_mask = 1
+
+[node name="coin8" parent="coins" index="6"]
+collision_layer = 8
+collision_mask = 1
+
+[node name="coin9" parent="coins" index="7"]
+collision_layer = 8
+collision_mask = 1
+
+[node name="coin10" parent="coins" index="8"]
+collision_layer = 8
+collision_mask = 1
+
+[node name="coin11" parent="coins" index="9"]
+collision_layer = 8
+collision_mask = 1
+
+[node name="coin12" parent="coins" index="10"]
+collision_layer = 8
+collision_mask = 1
+
+[node name="gem" parent="gems" index="0"]
+collision_layer = 8
+collision_mask = 1
+
+[node name="gem2" parent="gems" index="1"]
+collision_layer = 8
+collision_mask = 1
+
+[node name="gem3" parent="gems" index="2"]
+collision_layer = 8
+collision_mask = 1
