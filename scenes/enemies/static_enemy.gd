@@ -1,7 +1,7 @@
 extends Area2D
 
 signal enemy_died(xp_reward)
-@export var max_health := 30
+@export var max_health := 40
 @export var damage_per_second := 15
 @export var xp_reward := 10
 
@@ -26,7 +26,9 @@ func take_damage(amount):
 
 func die():
 	# Reward XP to player
-	emit_signal("enemy_died",xp_reward)
+	print("Enemy died.")
+	var game_manager = get_node("/root/GameManager")
+	game_manager.add_xp(5)
 	queue_free()
 
 func _on_body_entered(body):

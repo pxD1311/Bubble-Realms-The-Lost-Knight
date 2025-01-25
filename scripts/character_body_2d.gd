@@ -22,6 +22,7 @@ var facing_right := true
 @onready var collision_stand := $CollisionStand2
 @onready var collision_crouch := $CollisionCrouch2
 
+	
 func _physics_process(delta):
 	handle_movement(delta)
 	handle_attacks()
@@ -116,7 +117,7 @@ func take_damage(amount):
 	if GameManager.player_stats["hp"] <= 0:
 		GameManager.player_stats["hp"] = 0
 		print("Player is dead!")
-		# Trigger game over logic here
+		GameManager.game_over()
 	else:
 		print("Player took ", amount, " damage. HP: ", GameManager.player_stats["hp"])
 

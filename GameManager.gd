@@ -16,7 +16,7 @@ var current_scene_path = ""
 
 func _ready():
 	# Set the initial state or load saved game data
-	call_deferred("load_scene", "res://scenes/levels/level_selector.tscn")
+	call_deferred("load_scene", "res://scenes/levels/level_1.tscn")
 	# Optionally load a main menu instead
 	# load_main_menu()
 
@@ -41,7 +41,7 @@ func start_game():
 
 func game_over():
 	current_state = GameState.GAME_OVER
-	load_scene("res://scenes/game_over_scene.tscn")
+	load_scene(current_scene_path)
 
 func pause_game():
 	current_state = GameState.PAUSED
@@ -127,3 +127,8 @@ func add_coin():
 	player_stats["coins"]+=1
 	player_stats["score"]+=10
 	print(player_stats)
+	
+func add_xp(amount: int):
+	player_stats["xp"] += amount
+	print("Player XP: ", player_stats["xp"])
+	

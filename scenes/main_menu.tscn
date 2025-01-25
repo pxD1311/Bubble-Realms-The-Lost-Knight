@@ -1,41 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpec5qiyu75yp"]
+[gd_scene format=3 uid="uid://cpec5qiyu75yp"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_gnev5"]
-
-[node name="menu" type="Control"]
-layout_direction = 1
+[node name="UI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_gnev5")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = 329.0
-offset_top = 204.0
-offset_right = 853.0
-offset_bottom = 484.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="play" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Play"
-
-[node name="options" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Options"
-
-[node name="exit" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Quit"
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
