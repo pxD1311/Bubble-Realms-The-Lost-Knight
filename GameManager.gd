@@ -11,6 +11,15 @@ func _ready():
 	# Set initial state or load saved game data if needed
 	load_scene("res://scenes/level_1.tscn")
 	#load_main_menu()
+<<<<<<< HEAD
+=======
+=======
+	# Set the initial state or load saved game data
+	call_deferred("load_scene", "res://scenes/levels/level_1.tscn")
+	# Optionally load a main menu instead
+	# load_main_menu()
+>>>>>>> 0cabebc414c25e5ea510ce6c7913604a03feaf95
+>>>>>>> b506a0c77eebcb2e882834a9c64aaf1fac2d0790
 
 func _process(delta):
 	if current_state == GameState.PLAYING:
