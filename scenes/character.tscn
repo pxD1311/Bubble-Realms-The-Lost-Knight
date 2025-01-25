@@ -34,6 +34,7 @@ func _physics_process(delta):
 	handle_movement(delta)
 	update_animation()
 	move_and_slide()
+	player_level_up()
 
 func handle_input():
 	# Melee attack
@@ -165,8 +166,7 @@ func deal_damage_to_enemy(enemy_hp, critical_hit_chance = 0.1):
 func take_damage(amount):
 	GameManager.player_stats[\"hp\"] -= amount
 	if GameManager.player_stats[\"hp\"] <= 0:
-		GameManager.player_stats[\"hp\"] = 0
-		print(\"Player is dead!\")
+		GameManager.handle_kill_zone(self)
 		# Trigger game over logic here
 	else:
 		print(\"Player took \", amount, \" damage. HP: \", GameManager.player_stats[\"hp\"])
@@ -204,6 +204,11 @@ func is_player_dead():
 func get_player_stats():
 	print(\"Player Stats: \", GameManager.player_stats)
 	return GameManager.player_stats
+	
+func player_level_up():
+	if GameManager.player_stats[\"xp\"] > 50:
+		GameManager.player_stats[\"level\"]+=1 
+		GameManager.player_stats[\"xp\"] = 0
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8e1el"]
@@ -540,10 +545,11 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4pkp5"]
 radius = 8.0
+height = 26.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tx1a1"]
 radius = 8.0
-height = 18.0
+height = 16.0
 
 [node name="Character" type="CharacterBody2D" groups=["player"]]
 collision_mask = 11
@@ -556,11 +562,11 @@ animation = &"jump"
 autoplay = "idle"
 
 [node name="CollisionStand2" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1)
+position = Vector2(-1, 2)
 shape = SubResource("CapsuleShape2D_4pkp5")
 
 [node name="CollisionCrouch2" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7)
+position = Vector2(-1, 7)
 shape = SubResource("CapsuleShape2D_tx1a1")
 disabled = true
 

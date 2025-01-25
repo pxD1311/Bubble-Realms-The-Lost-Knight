@@ -118,7 +118,7 @@ func handle_kill_zone(body):
 	if body.name == "Character":  # Adjust based on your player node's name
 		print("KillZone: Player entered")
 		current_state = GameState.GAME_OVER  # Change game state
-		player_stats["hp"] = 0  # Update player stats (optional)
+		player_stats["hp"] = 100  # Update player stats (optional)
 		Engine.time_scale = 0.5  # Slow down the game for effect
 
 		# Restart the scene after a short delay
@@ -127,10 +127,12 @@ func handle_kill_zone(body):
 func add_gem():
 	player_stats["gems"] += 1
 	player_stats["score"] += 20
+	player_stats["xp"] += 4
 	print(player_stats)
 
 func add_coin():
 	player_stats["coins"] += 1
+	player_stats["xp"] += 2
 	player_stats["score"] += 10
 	print(player_stats)
 

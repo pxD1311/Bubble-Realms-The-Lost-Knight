@@ -1,14 +1,16 @@
 extends Camera2D
 
-@onready var label1: Label = $Label1  # For Health
-@onready var label2: Label = $Label2  # For Level
-@onready var label3: Label = $Label3  # For Coins
-@onready var label4: Label = $Label4  # For Gems
-@onready var label5: Label = $Label5  # For Score
+@onready var health: Label = $health  # For Health
+@onready var level: Label = $level  # For Level
+@onready var coins: Label = $coins  # For Coins
+@onready var gems: Label = $gems  # For Gems
+@onready var score: Label = $score  # For Score
+@onready var xp: Label = $xp  # For Xp
 
 func _process(delta: float) -> void:
-	label1.text = "Health: " + str(GameManager.player_stats["hp"]) + "/" + str(GameManager.player_stats_max["hp"])
-	label2.text = "Level: " + str(GameManager.player_stats["level"])
-	label3.text = "Coins: " + str(GameManager.player_stats["coins"])
-	label4.text = "Gems: " + str(GameManager.player_stats["gems"])
-	label5.text = "Score: " + str(GameManager.player_stats["score"])
+	health.text = "Health: " + str(GameManager.player_stats["hp"]) + "/" + str(GameManager.player_stats_max["hp"])
+	level.text = "Level: " + str(GameManager.player_stats["level"])
+	coins.text = "Coins: " + str(GameManager.player_stats["coins"])
+	gems.text = "Gems: " + str(GameManager.player_stats["gems"])
+	score.text = "Score: " + str(GameManager.player_stats["score"])
+	xp.text = "Xp: " + str(GameManager.player_stats["xp"])
