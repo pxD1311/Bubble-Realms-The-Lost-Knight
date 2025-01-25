@@ -26,10 +26,8 @@ func _process(delta):
 		if not is_inside_area:
 			is_inside_area = true
 			inside_time = 0.0  # Reset inside time when entering
-			print("Entered the area")
 
 		inside_time += delta  # Increment the inside time by the delta time
-		print(inside_time)
 		# If the inside time has exceeded the threshold, trigger "pop"
 		if inside_time >= time_threshold:
 			_on_area_2d_area_entered()  # Call the area entered logic
@@ -39,7 +37,6 @@ func _process(delta):
 		if is_inside_area:
 			is_inside_area = false
 			outside_time = 0.0  # Reset outside time when exiting
-			print("Exited the area")
 
 		outside_time += delta  # Increment the outside time by the delta time
 
