@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bxmccvb40m404"]
+[gd_scene load_steps=46 format=3 uid="uid://bxmccvb40m404"]
 
 [ext_resource type="PackedScene" uid="uid://b4vux1w3on4xj" path="res://scenes/character.tscn" id="1_domwe"]
 [ext_resource type="PackedScene" uid="uid://c82fmj21t6a5w" path="res://scenes/camera_hud.tscn" id="2_5mn0k"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://scripts/killzone.gd" id="18_auh3k"]
 [ext_resource type="PackedScene" uid="uid://c2gyfogrndnrc" path="res://scenes/enemies/static_enemy.tscn" id="19_k75iq"]
 [ext_resource type="Texture2D" uid="uid://bb6jeujynmryk" path="res://assets/level_parallax_cave/0.png" id="20_8bnmr"]
+[ext_resource type="PackedScene" uid="uid://c426gotobhc5r" path="res://scenes/enemies/mermaid.tscn" id="21_3wdgq"]
 [ext_resource type="Texture2D" uid="uid://g63ermb304om" path="res://assets/level_parallax_cave/00.png" id="21_w1u56"]
 [ext_resource type="Texture2D" uid="uid://mettcxjmfpeo" path="res://assets/level_parallax_cave/3.png" id="22_ajrm0"]
 [ext_resource type="Texture2D" uid="uid://dqpd2ouind7nl" path="res://assets/level_parallax_cave/4.png" id="23_penya"]
@@ -241,6 +242,67 @@ _data = {
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nj2bp"]
 
+[sub_resource type="Animation" id="Animation_du3ty"]
+resource_name = "new_animation"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(115, -181), Vector2(215, -181), Vector2(164, -181), Vector2(102, -181)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_qicvw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(115, -181)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nkknw"]
+_data = {
+"RESET": SubResource("Animation_qicvw"),
+"new_animation": SubResource("Animation_du3ty")
+}
+
 [node name="Level 1" type="Node2D"]
 
 [node name="Character" parent="." instance=ExtResource("1_domwe")]
@@ -392,7 +454,7 @@ shape = SubResource("WorldBoundaryShape2D_nj2bp")
 [node name="enemies" type="Node" parent="."]
 
 [node name="Static Enemy" parent="enemies" instance=ExtResource("19_k75iq")]
-position = Vector2(183, -172)
+position = Vector2(928, 532)
 
 [node name="Static Enemy2" parent="enemies" instance=ExtResource("19_k75iq")]
 position = Vector2(398, -12)
@@ -408,6 +470,15 @@ position = Vector2(1033, 532)
 
 [node name="Static Enemy4" parent="enemies" instance=ExtResource("19_k75iq")]
 position = Vector2(875, 180)
+
+[node name="Mermaid" parent="enemies" instance=ExtResource("21_3wdgq")]
+position = Vector2(115, -181)
+flip = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Mermaid"]
+libraries = {
+"": SubResource("AnimationLibrary_nkknw")
+}
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

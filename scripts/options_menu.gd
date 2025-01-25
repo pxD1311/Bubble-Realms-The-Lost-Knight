@@ -1,23 +1,21 @@
 extends Control
 
+@onready var volume_button = $MarginContainer/VBoxContainer/volume
+@onready var back_button = $MarginContainer/VBoxContainer/back
 
+func _ready():
+	volume_button.mouse_entered.connect(func() : volume_button.grab_focus())
+	volume_button.focus_entered.connect(func(): volume_button.modulate = Color(1.2, 1.2, 1.2))
+	volume_button.focus_exited.connect(func(): volume_button.modulate = Color.WHITE)
+	# Connect buttons
+	volume_button.pressed.connect(_on_volume_pressed)
+	back_button.pressed.connect(_on_back_pressed)
+	
+	# Set initial focus
+	volume_button.grab_focus()
 
-func _on_volume_pressed(volume_change: float):
-	# Get the current master volume
-	var current_volume = AudioServer.get_bus_volume_db(0)
-	
-	# Add the volume change (positive or negative)
-	var new_volume = current_volume + volume_change
-	
-	# Clamp the volume to avoid exceeding limits (e.g., -80 dB to 0 dB)
-	new_volume = clamp(new_volume, -80.0, 0.0)
-	
-	# Set the new master volume
-	AudioServer.set_bus_volume_db(0, new_volume)
-	
-	# Print the new volume for debugging
-
-	print("Master volume set to: ", new_volume, " dB")
+func _on_volume_pressed():
+	get_tree().change_scene_to_file("res://scenes/volume.tscn")
 
 
 func _on_back_pressed():

@@ -14,9 +14,13 @@ var current_health : int
 
 @export var flip: bool
 
-func _ready():
+func _process(_delta):
 	if flip:
 		animated_sprite_2d.flip_h = true
+	else:
+		animated_sprite_2d.flip_h = false
+
+func _ready():
 	add_to_group("enemies")
 	current_health = max_health
 	# Configure damage timer
