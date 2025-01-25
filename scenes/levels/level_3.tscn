@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bwq374dn0uys1"]
+[gd_scene load_steps=58 format=3 uid="uid://bwq374dn0uys1"]
 
 [ext_resource type="Texture2D" uid="uid://omd4qrxtweg" path="res://assets/tileset/Tileset.png" id="1_jsm8p"]
 [ext_resource type="PackedScene" uid="uid://b4vux1w3on4xj" path="res://scenes/character.tscn" id="1_phd4w"]
@@ -7,16 +7,32 @@
 [ext_resource type="PackedScene" uid="uid://dohm8ruyv6aom" path="res://scenes/bubble_pop.tscn" id="3_7aveg"]
 [ext_resource type="PackedScene" uid="uid://b4yfxnk068hvi" path="res://scenes/gem.tscn" id="3_ejuep"]
 [ext_resource type="PackedScene" uid="uid://dp3t42xdm01sk" path="res://scenes/portal.tscn" id="3_y448a"]
+[ext_resource type="Texture2D" uid="uid://c0rfmlxi3vjk2" path="res://assets/images/3 Objects/Boxes/1.png" id="5_dknm4"]
 [ext_resource type="PackedScene" uid="uid://c2gyfogrndnrc" path="res://scenes/enemies/static_enemy.tscn" id="6_qscul"]
+[ext_resource type="Texture2D" uid="uid://bcbuqcuuhtqpi" path="res://assets/images/3 Objects/Boxes/2.png" id="6_s1qoe"]
+[ext_resource type="Texture2D" uid="uid://dmgscg6pn8k2r" path="res://assets/images/3 Objects/Fence/1.png" id="7_0n5fo"]
+[ext_resource type="Texture2D" uid="uid://c7ftyvo5hrhq7" path="res://assets/images/3 Objects/Fence/3.png" id="8_anyqe"]
+[ext_resource type="Texture2D" uid="uid://bul8a0qbtty5t" path="res://assets/images/3 Objects/Fence/2.png" id="9_m2sve"]
 [ext_resource type="Script" path="res://scripts/killzone.gd" id="9_o0xwf"]
 [ext_resource type="Texture2D" uid="uid://bb6jeujynmryk" path="res://assets/level_parallax_cave/0.png" id="10_35rtv"]
+[ext_resource type="Texture2D" uid="uid://2hjc734dd0fw" path="res://assets/images/3 Objects/Ladders/4.png" id="10_q4spr"]
 [ext_resource type="Texture2D" uid="uid://g63ermb304om" path="res://assets/level_parallax_cave/00.png" id="11_b34lc"]
+[ext_resource type="Texture2D" uid="uid://pwfykxaiuaq1" path="res://assets/images/3 Objects/Ladders/5.png" id="11_up18i"]
 [ext_resource type="Texture2D" uid="uid://mettcxjmfpeo" path="res://assets/level_parallax_cave/3.png" id="12_0fe4k"]
+[ext_resource type="Texture2D" uid="uid://dllqq47stoox7" path="res://assets/images/3 Objects/Stones/1.png" id="12_ktp4c"]
+[ext_resource type="Texture2D" uid="uid://25a20nau4uj6" path="res://assets/images/3 Objects/Stones/4.png" id="13_ipe8f"]
 [ext_resource type="Texture2D" uid="uid://dqpd2ouind7nl" path="res://assets/level_parallax_cave/4.png" id="13_tdqbv"]
 [ext_resource type="Texture2D" uid="uid://do4k4d4td462" path="res://assets/level_parallax_cave/5.png" id="14_5g4yf"]
+[ext_resource type="Texture2D" uid="uid://b6mjqdmirpeup" path="res://assets/images/3 Objects/Stones/5.png" id="14_13ckv"]
+[ext_resource type="Texture2D" uid="uid://bs352je405j8x" path="res://assets/images/3 Objects/Stones/2.png" id="15_06eyd"]
 [ext_resource type="Texture2D" uid="uid://b136ivgjlngvw" path="res://assets/level_parallax_cave/6.png" id="15_ap4sl"]
 [ext_resource type="Texture2D" uid="uid://dwydksx5w0ujo" path="res://assets/level_parallax_cave/7ForeGround.png" id="16_bcswe"]
 [ext_resource type="Texture2D" uid="uid://cl1cmms1nm5os" path="res://assets/level_parallax_cave/BlackLight.png" id="17_ffffc"]
+[ext_resource type="Texture2D" uid="uid://b5owrohr4ysyj" path="res://assets/images/3 Objects/Trees/2.png" id="29_oq2w2"]
+[ext_resource type="Texture2D" uid="uid://bam6cn5xh21e0" path="res://assets/images/3 Objects/Ridges/1.png" id="30_uumc4"]
+[ext_resource type="Texture2D" uid="uid://0a7eda5f56q5" path="res://assets/images/3 Objects/Ridges/3.png" id="31_plbb0"]
+[ext_resource type="Texture2D" uid="uid://c3wyuyvwrp0cr" path="res://assets/images/3 Objects/Ladders/6.png" id="32_mg8yl"]
+[ext_resource type="Texture2D" uid="uid://dd2nybvk4p2re" path="res://assets/images/3 Objects/Pointers/2.png" id="33_ae5uk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sfv1s"]
 texture = ExtResource("1_jsm8p")
@@ -227,7 +243,7 @@ _data = {
 [sub_resource type="Animation" id="Animation_bnpbo"]
 resource_name = "new_animation"
 length = 8.0
-loop_mode = 1
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -262,12 +278,164 @@ _data = {
 "new_animation": SubResource("Animation_bnpbo")
 }
 
+[sub_resource type="Animation" id="Animation_j408x"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1229, 359), Vector2(1229, 187)]
+}
+
+[sub_resource type="Animation" id="Animation_jtfvu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1229, 359)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_erc82"]
+_data = {
+"RESET": SubResource("Animation_jtfvu"),
+"new_animation": SubResource("Animation_j408x")
+}
+
+[sub_resource type="Animation" id="Animation_f76j8"]
+resource_name = "new_animation"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(796, 136), Vector2(796, -28)]
+}
+
+[sub_resource type="Animation" id="Animation_wam53"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(796, 136)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w27sl"]
+_data = {
+"RESET": SubResource("Animation_wam53"),
+"new_animation": SubResource("Animation_f76j8")
+}
+
+[sub_resource type="Animation" id="Animation_keyko"]
+resource_name = "new_animation"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(426, 144), Vector2(426, -77)]
+}
+
+[sub_resource type="Animation" id="Animation_clks6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(426, 144)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7jaka"]
+_data = {
+"RESET": SubResource("Animation_clks6"),
+"new_animation": SubResource("Animation_keyko")
+}
+
+[sub_resource type="Animation" id="Animation_gqafs"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(368, 207), Vector2(368, -28)]
+}
+
+[sub_resource type="Animation" id="Animation_8dr28"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(368, 207)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p5lok"]
+_data = {
+"RESET": SubResource("Animation_8dr28"),
+"new_animation": SubResource("Animation_gqafs")
+}
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_le4q7"]
 
 [node name="Level3" type="Node2D"]
 
 [node name="Character" parent="." instance=ExtResource("1_phd4w")]
-position = Vector2(63, 591)
+position = Vector2(59, 590)
 
 [node name="Camera2D" type="Camera2D" parent="Character"]
 zoom = Vector2(4, 4)
@@ -470,20 +638,92 @@ position = Vector2(314, 437)
 [node name="gem" parent="gems" instance=ExtResource("3_ejuep")]
 position = Vector2(528, 89)
 
+[node name="gem7" parent="gems" instance=ExtResource("3_ejuep")]
+position = Vector2(332, 196)
+
+[node name="gem8" parent="gems" instance=ExtResource("3_ejuep")]
+position = Vector2(332, 211)
+
 [node name="gem2" parent="gems" instance=ExtResource("3_ejuep")]
-position = Vector2(528, 29)
+position = Vector2(332, 151)
 
 [node name="gem3" parent="gems" instance=ExtResource("3_ejuep")]
-position = Vector2(528, 41)
+position = Vector2(528, 61)
 
 [node name="gem4" parent="gems" instance=ExtResource("3_ejuep")]
-position = Vector2(528, 53)
+position = Vector2(528, 75)
 
 [node name="gem5" parent="gems" instance=ExtResource("3_ejuep")]
-position = Vector2(528, 65)
+position = Vector2(332, 166)
 
 [node name="gem6" parent="gems" instance=ExtResource("3_ejuep")]
-position = Vector2(528, 77)
+position = Vector2(332, 181)
+
+[node name="1" type="Sprite2D" parent="gems"]
+position = Vector2(143, 659)
+texture = ExtResource("5_dknm4")
+
+[node name="2" type="Sprite2D" parent="gems"]
+position = Vector2(141, -45)
+texture = ExtResource("6_s1qoe")
+
+[node name="3" type="Sprite2D" parent="gems"]
+position = Vector2(298, -40)
+texture = ExtResource("7_0n5fo")
+
+[node name="4" type="Sprite2D" parent="gems"]
+position = Vector2(522, 90)
+texture = ExtResource("8_anyqe")
+
+[node name="5" type="Sprite2D" parent="gems"]
+position = Vector2(535, 86)
+texture = ExtResource("9_m2sve")
+
+[node name="6" type="Sprite2D" parent="gems"]
+position = Vector2(523, 87)
+texture = ExtResource("7_0n5fo")
+
+[node name="7" type="Sprite2D" parent="gems"]
+position = Vector2(733, 27)
+texture = ExtResource("8_anyqe")
+
+[node name="8" type="Sprite2D" parent="gems"]
+position = Vector2(620, 24)
+texture = ExtResource("9_m2sve")
+
+[node name="9" type="Sprite2D" parent="gems"]
+position = Vector2(898, -15)
+texture = ExtResource("10_q4spr")
+
+[node name="10" type="Sprite2D" parent="gems"]
+position = Vector2(703, 80)
+texture = ExtResource("11_up18i")
+
+[node name="11" type="Sprite2D" parent="gems"]
+position = Vector2(527, 116)
+texture = ExtResource("10_q4spr")
+
+[node name="12" type="Sprite2D" parent="gems"]
+position = Vector2(527, 146)
+texture = ExtResource("11_up18i")
+
+[node name="13" type="Sprite2D" parent="gems"]
+position = Vector2(129, 180)
+scale = Vector2(0.436508, 0.415254)
+texture = ExtResource("12_ktp4c")
+
+[node name="14" type="Sprite2D" parent="gems"]
+position = Vector2(-85, 210)
+texture = ExtResource("13_ipe8f")
+
+[node name="15" type="Sprite2D" parent="gems"]
+position = Vector2(0, 210)
+texture = ExtResource("14_13ckv")
+
+[node name="16" type="Sprite2D" parent="gems"]
+position = Vector2(-140.25, -42.75)
+scale = Vector2(0.457447, 0.394737)
+texture = ExtResource("15_06eyd")
 
 [node name="platforms" type="Node" parent="."]
 
@@ -514,10 +754,62 @@ libraries = {
 }
 autoplay = "new_animation"
 
+[node name="bubble_up_down4" parent="platforms" instance=ExtResource("2_nhgi3")]
+position = Vector2(1229, 359)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/bubble_up_down4"]
+libraries = {
+"": SubResource("AnimationLibrary_erc82")
+}
+autoplay = "new_animation"
+
+[node name="bubble_up_down5" parent="platforms" instance=ExtResource("2_nhgi3")]
+position = Vector2(796, 136)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/bubble_up_down5"]
+libraries = {
+"": SubResource("AnimationLibrary_w27sl")
+}
+autoplay = "new_animation"
+
+[node name="bubble_up_down6" parent="platforms" instance=ExtResource("2_nhgi3")]
+position = Vector2(426, 144)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/bubble_up_down6"]
+libraries = {
+"": SubResource("AnimationLibrary_7jaka")
+}
+autoplay = "new_animation"
+
+[node name="bubble_up_down7" parent="platforms" instance=ExtResource("2_nhgi3")]
+position = Vector2(368, 207)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/bubble_up_down7"]
+libraries = {
+"": SubResource("AnimationLibrary_p5lok")
+}
+autoplay = "new_animation"
+
 [node name="pop platform" type="Node" parent="."]
 
 [node name="bubble_pop" parent="pop platform" instance=ExtResource("3_7aveg")]
 position = Vector2(953, 406)
+scale = Vector2(0.240703, 0.237249)
+
+[node name="bubble_pop6" parent="pop platform" instance=ExtResource("3_7aveg")]
+position = Vector2(899, 148)
+scale = Vector2(0.240703, 0.237249)
+
+[node name="bubble_pop7" parent="pop platform" instance=ExtResource("3_7aveg")]
+position = Vector2(848, 119)
+scale = Vector2(0.240703, 0.237249)
+
+[node name="bubble_pop4" parent="pop platform" instance=ExtResource("3_7aveg")]
+position = Vector2(1086, 185)
+scale = Vector2(0.240703, 0.237249)
+
+[node name="bubble_pop5" parent="pop platform" instance=ExtResource("3_7aveg")]
+position = Vector2(1140, 212)
 scale = Vector2(0.240703, 0.237249)
 
 [node name="bubble_pop2" parent="pop platform" instance=ExtResource("3_7aveg")]
@@ -541,8 +833,6 @@ position = Vector2(183, 660)
 
 [node name="Static Enemy4" parent="enemies" instance=ExtResource("6_qscul")]
 position = Vector2(95, 596)
-
-[node name="rotating_platforms" type="Node" parent="."]
 
 [node name="portals" type="Node" parent="."]
 
@@ -633,5 +923,33 @@ motion_mirroring = Vector2(1280, 720)
 position = Vector2(8, -10)
 texture = ExtResource("17_ffffc")
 centered = false
+
+[node name="2" type="Sprite2D" parent="."]
+position = Vector2(976, 126)
+texture = ExtResource("29_oq2w2")
+
+[node name="1" type="Sprite2D" parent="."]
+position = Vector2(836, 435)
+texture = ExtResource("30_uumc4")
+
+[node name="3" type="Sprite2D" parent="."]
+position = Vector2(355, 428)
+texture = ExtResource("31_plbb0")
+
+[node name="4" type="Sprite2D" parent="."]
+position = Vector2(107, 592)
+texture = ExtResource("10_q4spr")
+
+[node name="5" type="Sprite2D" parent="."]
+position = Vector2(107, 560)
+texture = ExtResource("11_up18i")
+
+[node name="6" type="Sprite2D" parent="."]
+position = Vector2(107, 528)
+texture = ExtResource("32_mg8yl")
+
+[node name="7" type="Sprite2D" parent="."]
+position = Vector2(690, 22)
+texture = ExtResource("33_ae5uk")
 
 [connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]
