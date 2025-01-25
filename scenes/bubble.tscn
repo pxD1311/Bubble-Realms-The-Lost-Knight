@@ -6,6 +6,7 @@
 size = Vector2(29, 5.5)
 
 [node name="bubble_up_down" type="AnimatableBody2D"]
+collision_layer = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 6

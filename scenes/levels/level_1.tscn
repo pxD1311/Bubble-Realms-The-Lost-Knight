@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://b136ivgjlngvw" path="res://assets/level_parallax_cave/6.png" id="25_ndfde"]
 [ext_resource type="Texture2D" uid="uid://dwydksx5w0ujo" path="res://assets/level_parallax_cave/7ForeGround.png" id="26_54tw3"]
 [ext_resource type="Texture2D" uid="uid://cl1cmms1nm5os" path="res://assets/level_parallax_cave/BlackLight.png" id="27_q1y3a"]
-[ext_resource type="PackedScene" path="res://scenes/bubble_pop.tscn" id="28_crmov"]
+[ext_resource type="PackedScene" uid="uid://dohm8ruyv6aom" path="res://scenes/bubble_pop.tscn" id="28_crmov"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j0jm3"]
 texture = ExtResource("2_l65qr")
@@ -390,13 +390,19 @@ shape = SubResource("WorldBoundaryShape2D_nj2bp")
 [node name="enemies" type="Node" parent="."]
 
 [node name="Static Enemy" parent="enemies" instance=ExtResource("19_k75iq")]
-position = Vector2(45, -12)
+position = Vector2(183, -172)
 
 [node name="Static Enemy2" parent="enemies" instance=ExtResource("19_k75iq")]
+position = Vector2(406, -12)
+
+[node name="Static Enemy5" parent="enemies" instance=ExtResource("19_k75iq")]
+position = Vector2(850, 180)
 
 [node name="Static Enemy3" parent="enemies" instance=ExtResource("19_k75iq")]
+position = Vector2(911, 373)
 
 [node name="Static Enemy4" parent="enemies" instance=ExtResource("19_k75iq")]
+position = Vector2(1043, 533)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
