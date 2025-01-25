@@ -8,16 +8,14 @@ var autosave_interval = 60.0  # Autosave every 60 seconds
 var player_stats = {"hp": 100, "attack": 10, "xp": 0, "level": 1, "score" : 0}
 
 func _ready():
-<<<<<<< HEAD
 	# Set initial state or load saved game data if needed
 	load_scene("res://scenes/level_1.tscn")
 	#load_main_menu()
-=======
 	# Set the initial state or load saved game data
 	call_deferred("load_scene", "res://scenes/levels/level_1.tscn")
 	# Optionally load a main menu instead
 	# load_main_menu()
->>>>>>> 0cabebc414c25e5ea510ce6c7913604a03feaf95
+
 
 func _process(delta):
 	if current_state == GameState.PLAYING:
