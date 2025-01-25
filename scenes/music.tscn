@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnu4on8jfboec"]
+
+[ext_resource type="AudioStream" uid="uid://boy46gmvdt4sf" path="res://assets/music/Pixel 4.mp3" id="1_lpbfx"]
+
+[node name="Music" type="Node2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_lpbfx")
+autoplay = true
+bus = &"BGM"

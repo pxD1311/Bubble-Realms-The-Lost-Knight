@@ -11,7 +11,7 @@ func _on_body_entered(body):
 	if body.is_in_group("player"):
 		collect(body)
 
-func collect(player):
+func collect(_player):
 	# Add score through GameManager or directly to player
 	GameManager.add_gem()
 	

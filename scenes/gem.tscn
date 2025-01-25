@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://b4yfxnk068hvi"]
+[gd_scene load_steps=21 format=3 uid="uid://b4yfxnk068hvi"]
 
 [ext_resource type="Script" path="res://scripts/gem.gd" id="1_vnnfk"]
 [ext_resource type="Texture2D" uid="uid://3sn6h3jfem77" path="res://assets/images/currency/gem.png" id="2_4s3k1"]
+[ext_resource type="AudioStream" uid="uid://djx44ml6o50ex" path="res://assets/sounds/coin.wav" id="3_c8gae"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s6kym"]
 atlas = ExtResource("2_4s3k1")
@@ -208,6 +209,7 @@ autoplay = "default"
 shape = SubResource("CircleShape2D_24mma")
 
 [node name="coin_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_c8gae")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
