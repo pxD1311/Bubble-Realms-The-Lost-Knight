@@ -13,8 +13,8 @@ func _on_level_2_pressed():
 
 func _on_level_3_pressed():
 	if GameManager.levels_unlocked >= 3:
-		get_tree().change_scene_to_file("res://scenes/levels/level_2.tscn")
-		GameManager.current_scene_path = "res://scenes/levels/level_2.tscn"
+		get_tree().change_scene_to_file("res://scenes/levels/level_3.tscn")
+		GameManager.current_scene_path = "res://scenes/levels/level_3.tscn"
 
 func _on_level_4_pressed():
 	if GameManager.levels_unlocked >= 4:
