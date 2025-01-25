@@ -16,7 +16,7 @@ var current_scene_path = ""
 
 func _ready():
 	# Set the initial state or load saved game data
-	call_deferred("load_scene", "res://scenes/levels/level_1.tscn")
+	call_deferred("load_scene", "res://scenes/levels/hub.tscn")
 	# Optionally load a main menu instead
 	# load_main_menu()
 
