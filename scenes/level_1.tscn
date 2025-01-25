@@ -9,3 +9,5 @@ collision_layer = 8
 
 [node name="bubble_up_down" parent="platforms" index="1"]
 collision_layer = 8
+
+[node name="enemies" parent="." index="9" groups=["enemies"]]

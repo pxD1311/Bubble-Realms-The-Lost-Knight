@@ -1,10 +1,12 @@
 extends Area2D
 
+signal enemy_died(xp_reward)
 @export var max_health := 30
 @export var damage_per_second := 15
 @export var xp_reward := 10
 
 @onready var damage_timer = $Damage_timer
+
 
 var current_health : int
 
@@ -24,9 +26,7 @@ func take_damage(amount):
 
 func die():
 	# Reward XP to player
-	var player = get_tree().get_first_node_in_group("player")
-	if player:
-		player.gain_xp(xp_reward)
+	emit_signal("enemy_died",xp_reward)
 	queue_free()
 
 func _on_body_entered(body):
