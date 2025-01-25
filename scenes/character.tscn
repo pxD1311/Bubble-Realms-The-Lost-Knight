@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://b4vux1w3on4xj"]
+[gd_scene load_steps=49 format=3 uid="uid://b4vux1w3on4xj"]
 
 [ext_resource type="PackedScene" uid="uid://vcqoa87imy2i" path="res://scenes/projectile.tscn" id="1_ripu8"]
 [ext_resource type="Texture2D" uid="uid://15dlunkhfeke" path="res://assets/images/player/AnimationSheet_Character.png" id="2_3af8f"]
@@ -546,8 +546,6 @@ radius = 8.0
 height = 18.0
 
 [node name="Character" type="CharacterBody2D"]
-collision_layer = 3
-collision_mask = 3
 script = SubResource("GDScript_7woi2")
 water_blast_scene = ExtResource("1_ripu8")
 
