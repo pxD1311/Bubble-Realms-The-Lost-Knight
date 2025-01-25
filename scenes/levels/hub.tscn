@@ -30,7 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://ct56msk67rq04" path="res://assets/images/3 Objects/Boxes/5.png" id="28_n7v2n"]
 [ext_resource type="Texture2D" uid="uid://d05ngndiq6b35" path="res://assets/images/3 Objects/Bushes/7.png" id="29_rja1o"]
 [ext_resource type="PackedScene" uid="uid://c7k3jhihvelis" path="res://scenes/bubble.tscn" id="30_vathm"]
-[ext_resource type="PackedScene" uid="uid://ca4001x6u8rb2" path="res://scenes/character.tscn" id="31_rf1li"]
+[ext_resource type="PackedScene" uid="uid://b4vux1w3on4xj" path="res://scenes/character.tscn" id="31_rf1li"]
 [ext_resource type="PackedScene" uid="uid://dp3t42xdm01sk" path="res://scenes/portal.tscn" id="32_coy5d"]
 [ext_resource type="Texture2D" uid="uid://q6f1bewdx1cg" path="res://assets/hub_background_layers/Layer_0000_9.png" id="33_ymekk"]
 [ext_resource type="Texture2D" uid="uid://usbl4uh3lf2p" path="res://assets/hub_background_layers/Layer_0001_8.png" id="34_ncjkd"]

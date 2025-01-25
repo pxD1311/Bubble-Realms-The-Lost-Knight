@@ -9,14 +9,14 @@ var autosave_timer = 0.0
 var autosave_interval = 60.0  # Autosave every 60 seconds
 
 # Player stats
-var player_stats = {"hp": 100, "attack": 10, "xp": 0, "level": 1, "score": 0}
+var player_stats = {"hp": 100, "attack": 10, "xp": 0, "level": 1, "score": 0, "gems" : 0, "coins" : 0}
 
 # Store the current scene path for restarting
 var current_scene_path = ""
 
 func _ready():
 	# Set the initial state or load saved game data
-	call_deferred("load_scene", "res://scenes/levels/hub.tscn")
+	call_deferred("load_scene", "res://scenes/levels/level_1.tscn")
 	# Optionally load a main menu instead
 	# load_main_menu()
 
@@ -117,3 +117,11 @@ func handle_kill_zone(body):
 
 		# Restart the scene after a short delay
 		get_tree().create_timer(0.5).timeout.connect(restart_scene)
+
+func add_gem():
+	player_stats["gems"]+=1
+	player_stats["score"]+=10
+	
+func add_coin():
+	player_stats["coins"]+=1
+	player_stats["score"]+=100
