@@ -1,23 +1,289 @@
-[gd_scene format=3 uid="uid://cpec5qiyu75yp"]
+[gd_scene load_steps=27 format=3 uid="uid://cpec5qiyu75yp"]
 
-[node name="UI" type="Control"]
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_cms1v"]
+[ext_resource type="Texture2D" uid="uid://b75g5ppynyxhp" path="res://assets/images/GUI.png" id="2_n2en2"]
+[ext_resource type="Texture2D" uid="uid://dfkypuwynstps" path="res://assets/images/wrzjDx.png" id="3_vm6sx"]
+[ext_resource type="Texture2D" uid="uid://15dlunkhfeke" path="res://assets/images/player/AnimationSheet_Character.png" id="3_x2bbf"]
+[ext_resource type="FontFile" uid="uid://8dnqlflne0wv" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_6ap6j"]
+[ext_resource type="FontFile" uid="uid://b6nrqngnoj5cy" path="res://assets/fonts/PixelOperator8.ttf" id="5_jyhcd"]
+[ext_resource type="Texture2D" uid="uid://d746bp8hobc5" path="res://assets/images/bubbles/bubble_1.png" id="6_0ug7p"]
+[ext_resource type="Texture2D" uid="uid://8wukb7cq5mjk" path="res://assets/images/bubbles/bubble_2.png" id="7_jpm1e"]
+[ext_resource type="Texture2D" uid="uid://esj2gtcrks0u" path="res://assets/images/bubbles/bubble_3.png" id="8_t608f"]
+[ext_resource type="Texture2D" uid="uid://bep5j02vf1cdf" path="res://assets/images/bubbles/bubble_4.png" id="9_6mp4u"]
+[ext_resource type="Texture2D" uid="uid://3vrfc5yw17pi" path="res://assets/images/bubbles/bubble_5.png" id="10_i585x"]
+[ext_resource type="Texture2D" uid="uid://5iydp2hfaved" path="res://assets/images/bubbles/bubble_6.png" id="11_5pno6"]
+[ext_resource type="Texture2D" uid="uid://7inxxt7560ob" path="res://assets/images/bubbles/bubble_7.png" id="12_wv17l"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pwqrh"]
+texture = ExtResource("2_n2en2")
+region_rect = Rect2(145, 81, 46, 14)
+modulate_color = Color(0.813258, 0.813258, 0.813257, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ebomm"]
+texture = ExtResource("2_n2en2")
+region_rect = Rect2(145, 81, 46, 14)
+modulate_color = Color(0.577008, 0.577008, 0.577008, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t7qxi"]
+texture = ExtResource("2_n2en2")
+region_rect = Rect2(145, 81, 46, 14)
+
+[sub_resource type="Theme" id="Theme_dbk20"]
+Label/font_sizes/font_size = 67
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjvnd"]
+atlas = ExtResource("3_x2bbf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1eq7"]
+atlas = ExtResource("3_x2bbf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0qxr"]
+atlas = ExtResource("3_x2bbf")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78ejl"]
+atlas = ExtResource("3_x2bbf")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h281q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjvnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1eq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0qxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78ejl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_inbnb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_0ug7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jpm1e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_t608f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6mp4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_i585x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5pno6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wv17l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_ei2fl"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_81ykw"]
+resource_name = "new_animation"
+loop_mode = 2
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sydnb"]
+_data = {
+"RESET": SubResource("Animation_ei2fl"),
+"new_animation": SubResource("Animation_81ykw")
+}
+
+[node name="Main Menu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_cms1v")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -230.0
+offset_top = -110.0
+offset_right = 267.0
+offset_bottom = 338.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 21
+alignment = 1
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+z_index = 1
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("5_jyhcd")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/hover = SubResource("StyleBoxTexture_pwqrh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ebomm")
+theme_override_styles/normal = SubResource("StyleBoxTexture_t7qxi")
+text = "Start"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("5_jyhcd")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/hover = SubResource("StyleBoxTexture_pwqrh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ebomm")
+theme_override_styles/normal = SubResource("StyleBoxTexture_t7qxi")
+text = "Options"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("5_jyhcd")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/hover = SubResource("StyleBoxTexture_pwqrh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ebomm")
+theme_override_styles/normal = SubResource("StyleBoxTexture_t7qxi")
+text = "Quit"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.686574, 0.642737, 0.685789, 1)
+z_index = -5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -958.0
+offset_top = -541.0
+offset_right = 979.0
+offset_bottom = 538.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_vm6sx")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -910.0
+offset_top = -351.0
+offset_right = 1016.0
+offset_bottom = -224.0
+theme = SubResource("Theme_dbk20")
+theme_override_fonts/font = ExtResource("4_6ap6j")
+text = "Bubble Realms: The Lost Wizard"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-735, 136)
+scale = Vector2(8.6875, 8.34375)
+sprite_frames = SubResource("SpriteFrames_h281q")
+autoplay = "default"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(-743, 155)
+scale = Vector2(4.28125, 4.0625)
+sprite_frames = SubResource("SpriteFrames_inbnb")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(-679, -401)
+scale = Vector2(1.27734, 1.17578)
+sprite_frames = SubResource("SpriteFrames_inbnb")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D3"]
+libraries = {
+"": SubResource("AnimationLibrary_sydnb")
+}
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+position = Vector2(-13.0001, -341)
+scale = Vector2(1.27734, 1.17578)
+sprite_frames = SubResource("SpriteFrames_inbnb")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D4"]
+libraries = {
+"": SubResource("AnimationLibrary_sydnb")
+}
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+position = Vector2(682, -433)
+scale = Vector2(1.27734, 1.17578)
+sprite_frames = SubResource("SpriteFrames_inbnb")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_sydnb")
+}
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
+position = Vector2(653, 312)
+scale = Vector2(1.27734, 1.17578)
+sprite_frames = SubResource("SpriteFrames_inbnb")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D6"]
+libraries = {
+"": SubResource("AnimationLibrary_sydnb")
+}
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="."]
+position = Vector2(-366, 348)
+scale = Vector2(1.27734, 1.17578)
+sprite_frames = SubResource("SpriteFrames_inbnb")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D7"]
+libraries = {
+"": SubResource("AnimationLibrary_sydnb")
+}
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="."]
+position = Vector2(650, -1)
+scale = Vector2(1.27734, 1.17578)
+sprite_frames = SubResource("SpriteFrames_inbnb")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D8"]
+libraries = {
+"": SubResource("AnimationLibrary_sydnb")
+}
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="."]
+position = Vector2(165, 255)
+scale = Vector2(1.27734, 1.18164)
+sprite_frames = SubResource("SpriteFrames_inbnb")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D9"]
+libraries = {
+"": SubResource("AnimationLibrary_sydnb")
+}
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

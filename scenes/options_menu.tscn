@@ -1,6 +1,80 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8kakac6atceq"]
+[gd_scene load_steps=26 format=3 uid="uid://c8kakac6atceq"]
 
 [ext_resource type="Script" path="res://scripts/options_menu.gd" id="1_y861n"]
+[ext_resource type="Texture2D" uid="uid://8bfxwg2wmfwx" path="res://assets/images/wrzjDx.png" id="2_choba"]
+[ext_resource type="Texture2D" uid="uid://b75g5ppynyxhp" path="res://assets/images/GUI.png" id="2_yghgc"]
+[ext_resource type="FontFile" uid="uid://b6nrqngnoj5cy" path="res://assets/fonts/PixelOperator8.ttf" id="3_0yntl"]
+[ext_resource type="Texture2D" uid="uid://d746bp8hobc5" path="res://assets/images/bubbles/bubble_1.png" id="5_ymdx1"]
+[ext_resource type="Texture2D" uid="uid://8wukb7cq5mjk" path="res://assets/images/bubbles/bubble_2.png" id="6_q6msw"]
+[ext_resource type="Texture2D" uid="uid://esj2gtcrks0u" path="res://assets/images/bubbles/bubble_3.png" id="7_it56e"]
+[ext_resource type="Texture2D" uid="uid://bep5j02vf1cdf" path="res://assets/images/bubbles/bubble_4.png" id="8_ldf56"]
+[ext_resource type="Texture2D" uid="uid://3vrfc5yw17pi" path="res://assets/images/bubbles/bubble_5.png" id="9_8v0ab"]
+[ext_resource type="Texture2D" uid="uid://5iydp2hfaved" path="res://assets/images/bubbles/bubble_6.png" id="10_5mefj"]
+[ext_resource type="Texture2D" uid="uid://7inxxt7560ob" path="res://assets/images/bubbles/bubble_7.png" id="11_20q0v"]
+[ext_resource type="Texture2D" uid="uid://dllqq47stoox7" path="res://assets/images/3 Objects/Stones/1.png" id="12_t4bsa"]
+[ext_resource type="Texture2D" uid="uid://bs352je405j8x" path="res://assets/images/3 Objects/Stones/2.png" id="13_k5bld"]
+[ext_resource type="Texture2D" uid="uid://fmk68tede7gj" path="res://assets/images/3 Objects/Ridges/2.png" id="14_633fe"]
+[ext_resource type="Texture2D" uid="uid://25a20nau4uj6" path="res://assets/images/3 Objects/Stones/4.png" id="15_ayiol"]
+[ext_resource type="Texture2D" uid="uid://b7tayhiq4jkun" path="res://assets/images/3 Objects/Grass/2.png" id="16_7sjdm"]
+[ext_resource type="Texture2D" uid="uid://bkynq68v3whs4" path="res://assets/images/3 Objects/Grass/3.png" id="17_lfxrd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nkpqc"]
+texture = ExtResource("2_yghgc")
+region_rect = Rect2(145, 81, 46, 14)
+
+[sub_resource type="Theme" id="Theme_htlr4"]
+Button/font_sizes/font_size = 25
+Button/styles/normal = SubResource("StyleBoxTexture_nkpqc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w8p2d"]
+texture = ExtResource("2_yghgc")
+region_rect = Rect2(145, 98, 46, 13)
+
+[sub_resource type="Theme" id="Theme_8xq0v"]
+Button/font_sizes/font_size = 25
+Button/styles/normal = SubResource("StyleBoxTexture_w8p2d")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xm1lr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ymdx1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_q6msw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_it56e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ldf56")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8v0ab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5mefj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_20q0v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_81ykw"]
+resource_name = "new_animation"
+loop_mode = 2
+
+[sub_resource type="Animation" id="Animation_ei2fl"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sydnb"]
+_data = {
+"RESET": SubResource("Animation_ei2fl"),
+"new_animation": SubResource("Animation_81ykw")
+}
 
 [node name="options_menu" type="Control"]
 layout_mode = 3
@@ -16,26 +90,158 @@ script = ExtResource("1_y861n")
 [node name="MarginContainer" type="MarginContainer" parent="."]
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -66.0
+offset_left = -192.0
+offset_top = -175.0
+offset_right = 16.0
+offset_bottom = -16.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 scale = Vector2(1.83875, 1.76632)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 12
 
 [node name="volume" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_htlr4")
+theme_override_fonts/font = ExtResource("3_0yntl")
 text = "Volume
 "
 
 [node name="back" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_8xq0v")
+theme_override_fonts/font = ExtResource("3_0yntl")
 text = "Back"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.621524, 0.621524, 0.621524, 1)
+z_index = -5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -955.0
+offset_top = -535.0
+offset_right = 982.0
+offset_bottom = 544.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_choba")
+stretch_mode = 6
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(-679, -401)
+scale = Vector2(1.27734, 1.17578)
+sprite_frames = SubResource("SpriteFrames_xm1lr")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D3"]
+libraries = {
+"": SubResource("AnimationLibrary_sydnb")
+}
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+position = Vector2(-105, -347)
+scale = Vector2(1.27734, 1.17578)
+sprite_frames = SubResource("SpriteFrames_xm1lr")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D4"]
+libraries = {
+"": SubResource("AnimationLibrary_sydnb")
+}
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+position = Vector2(-527, -31)
+scale = Vector2(1.27734, 1.17578)
+sprite_frames = SubResource("SpriteFrames_xm1lr")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_sydnb")
+}
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
+position = Vector2(571, -213)
+scale = Vector2(1.27734, 1.17578)
+sprite_frames = SubResource("SpriteFrames_xm1lr")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D6"]
+libraries = {
+"": SubResource("AnimationLibrary_sydnb")
+}
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="."]
+position = Vector2(457, 71)
+scale = Vector2(1.27734, 1.17578)
+sprite_frames = SubResource("SpriteFrames_xm1lr")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D7"]
+libraries = {
+"": SubResource("AnimationLibrary_sydnb")
+}
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="."]
+position = Vector2(317, -355)
+scale = Vector2(1.27734, 1.17578)
+sprite_frames = SubResource("SpriteFrames_xm1lr")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D8"]
+libraries = {
+"": SubResource("AnimationLibrary_sydnb")
+}
+
+[node name="1" type="Sprite2D" parent="."]
+position = Vector2(-780, 409)
+scale = Vector2(5.54762, 4.66949)
+texture = ExtResource("12_t4bsa")
+
+[node name="2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(809, 397)
+scale = Vector2(7.18085, 5.20175)
+texture = ExtResource("13_k5bld")
+
+[node name="3" type="Sprite2D" parent="."]
+position = Vector2(590, 425)
+scale = Vector2(8.575, 8.57143)
+texture = ExtResource("14_633fe")
+
+[node name="4" type="Sprite2D" parent="."]
+position = Vector2(76, 482)
+scale = Vector2(4.60526, 4.1)
+texture = ExtResource("15_ayiol")
+
+[node name="5" type="Sprite2D" parent="."]
+position = Vector2(-149, 484)
+scale = Vector2(11.6176, 7.5)
+texture = ExtResource("16_7sjdm")
+
+[node name="6" type="Sprite2D" parent="."]
+position = Vector2(881, 484)
+scale = Vector2(11.6176, 7.5)
+texture = ExtResource("16_7sjdm")
+
+[node name="7" type="Sprite2D" parent="."]
+position = Vector2(-659, 486)
+scale = Vector2(11.6176, 7.5)
+texture = ExtResource("16_7sjdm")
+
+[node name="8" type="Sprite2D" parent="."]
+position = Vector2(360, 477)
+scale = Vector2(15.6429, 8.1875)
+texture = ExtResource("17_lfxrd")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/volume" to="." method="_on_volume_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/back" to="." method="_on_back_pressed"]
