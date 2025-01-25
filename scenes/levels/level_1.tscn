@@ -245,6 +245,7 @@ _data = {
 [sub_resource type="Animation" id="Animation_du3ty"]
 resource_name = "new_animation"
 length = 4.5
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -252,10 +253,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 3, 4.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 2.26667, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(115, -181), Vector2(215, -181), Vector2(164, -181), Vector2(102, -181)]
+"values": [Vector2(115, -181), Vector2(215, -181), Vector2(102, -181)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -264,10 +265,10 @@ tracks/1/path = NodePath(".:flip")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(2.26667, 4.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_qicvw"]
@@ -479,6 +480,7 @@ flip = true
 libraries = {
 "": SubResource("AnimationLibrary_nkknw")
 }
+autoplay = "new_animation"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
