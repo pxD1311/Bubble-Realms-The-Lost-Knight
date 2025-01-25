@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://b82hpkpycpl8a"]
+[gd_scene load_steps=44 format=3 uid="uid://b82hpkpycpl8a"]
 
 [ext_resource type="Texture2D" uid="uid://omd4qrxtweg" path="res://assets/tileset/Tileset.png" id="1_0hm6d"]
 [ext_resource type="PackedScene" uid="uid://c7k3jhihvelis" path="res://scenes/bubble.tscn" id="2_ax3l1"]
@@ -18,6 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://bs352je405j8x" path="res://assets/images/3 Objects/Stones/2.png" id="16_4i1u8"]
 [ext_resource type="Texture2D" uid="uid://25a20nau4uj6" path="res://assets/images/3 Objects/Stones/4.png" id="17_f53f5"]
 [ext_resource type="Script" path="res://scripts/killzone.gd" id="18_4fkwo"]
+[ext_resource type="PackedScene" uid="uid://d3w3efhgvj8ka" path="res://scenes/coin.tscn" id="19_3l6qd"]
+[ext_resource type="PackedScene" uid="uid://b4yfxnk068hvi" path="res://scenes/gem.tscn" id="20_q4o5d"]
+[ext_resource type="PackedScene" uid="uid://vjd8hn0f8rkm" path="res://scenes/enemies/blue_slime.tscn" id="21_ioq42"]
+[ext_resource type="Script" path="res://scripts/blue_slime.gd" id="22_3xssf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0cpj"]
 texture = ExtResource("1_0hm6d")
@@ -713,6 +717,85 @@ shape = SubResource("WorldBoundaryShape2D_ny8lo")
 
 [node name="coins" type="Node" parent="."]
 
+[node name="coin" parent="coins" instance=ExtResource("19_3l6qd")]
+position = Vector2(314, 183)
+
+[node name="coin2" parent="coins" instance=ExtResource("19_3l6qd")]
+position = Vector2(333, 183)
+
+[node name="coin3" parent="coins" instance=ExtResource("19_3l6qd")]
+position = Vector2(352, 183)
+
+[node name="coin4" parent="coins" instance=ExtResource("19_3l6qd")]
+position = Vector2(372, 183)
+
+[node name="coin5" parent="coins" instance=ExtResource("19_3l6qd")]
+position = Vector2(392, 182)
+
+[node name="coin6" parent="coins" instance=ExtResource("19_3l6qd")]
+position = Vector2(780, 113)
+
+[node name="coin7" parent="coins" instance=ExtResource("19_3l6qd")]
+position = Vector2(814, 113)
+
+[node name="coin8" parent="coins" instance=ExtResource("19_3l6qd")]
+position = Vector2(1095, 211)
+
+[node name="coin9" parent="coins" instance=ExtResource("19_3l6qd")]
+position = Vector2(1262, 340)
+
+[node name="coin10" parent="coins" instance=ExtResource("19_3l6qd")]
+position = Vector2(271, 470)
+
+[node name="coin11" parent="coins" instance=ExtResource("19_3l6qd")]
+position = Vector2(229, 469)
+
+[node name="coin12" parent="coins" instance=ExtResource("19_3l6qd")]
+position = Vector2(820, 471)
+
+[node name="coin13" parent="coins" instance=ExtResource("19_3l6qd")]
+position = Vector2(1008, 566)
+
+[node name="coin14" parent="coins" instance=ExtResource("19_3l6qd")]
+position = Vector2(975, 535)
+
+[node name="coin15" parent="coins" instance=ExtResource("19_3l6qd")]
+position = Vector2(944, 502)
+
 [node name="gems" type="Node" parent="."]
+
+[node name="gem" parent="gems" instance=ExtResource("20_q4o5d")]
+position = Vector2(-58, 247)
+
+[node name="gem2" parent="gems" instance=ExtResource("20_q4o5d")]
+position = Vector2(653, 99)
+
+[node name="gem3" parent="gems" instance=ExtResource("20_q4o5d")]
+position = Vector2(1165, 341)
+
+[node name="gem4" parent="gems" instance=ExtResource("20_q4o5d")]
+position = Vector2(1458, 469)
+
+[node name="gem5" parent="gems" instance=ExtResource("20_q4o5d")]
+position = Vector2(562, 466)
+
+[node name="enemies" type="Node" parent="."]
+
+[node name="BlueSlime" parent="enemies" instance=ExtResource("21_ioq42")]
+position = Vector2(856, 116)
+
+[node name="BlueSlime2" parent="enemies" instance=ExtResource("21_ioq42")]
+position = Vector2(1145, 212)
+
+[node name="BlueSlime3" parent="enemies" instance=ExtResource("21_ioq42")]
+position = Vector2(1222, 341)
+
+[node name="BlueSlime4" parent="enemies" instance=ExtResource("21_ioq42")]
+position = Vector2(253, 468)
+script = ExtResource("22_3xssf")
+
+[node name="BlueSlime5" parent="enemies" instance=ExtResource("21_ioq42")]
+position = Vector2(852, 468)
+script = ExtResource("22_3xssf")
 
 [connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]
