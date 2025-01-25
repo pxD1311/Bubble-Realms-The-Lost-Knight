@@ -1,8 +1,9 @@
 extends Control
 
 func _on_level_1_pressed():
-	get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")
-	GameManager.current_scene_path = "res://scenes/levels/level_1.tscn"
+	if GameManager.levels_unlocked >= 1:
+		get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")
+		GameManager.current_scene_path = "res://scenes/levels/level_1.tscn"
 
 
 func _on_level_2_pressed():
@@ -29,5 +30,6 @@ func _on_level_5_pressed():
 
 
 func _on_hub_pressed():
-	get_tree().change_scene_to_file("res://scenes/levels/hub.tscn")
-	GameManager.current_scene_path = "res://scenes/levels/hub.tscn"
+	if GameManager.levels_unlocked >= 0:
+		get_tree().change_scene_to_file("res://scenes/levels/hub.tscn")
+		GameManager.current_scene_path = "res://scenes/levels/hub.tscn"
