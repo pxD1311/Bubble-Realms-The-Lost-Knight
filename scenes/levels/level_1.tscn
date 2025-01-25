@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bxmccvb40m404"]
+[gd_scene load_steps=38 format=3 uid="uid://bxmccvb40m404"]
 
 [ext_resource type="PackedScene" uid="uid://b4vux1w3on4xj" path="res://scenes/character.tscn" id="1_domwe"]
 [ext_resource type="Texture2D" uid="uid://omd4qrxtweg" path="res://assets/tileset/Tileset.png" id="2_l65qr"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://b136ivgjlngvw" path="res://assets/level_parallax_cave/6.png" id="25_ndfde"]
 [ext_resource type="Texture2D" uid="uid://dwydksx5w0ujo" path="res://assets/level_parallax_cave/7ForeGround.png" id="26_54tw3"]
 [ext_resource type="Texture2D" uid="uid://cl1cmms1nm5os" path="res://assets/level_parallax_cave/BlackLight.png" id="27_q1y3a"]
+[ext_resource type="PackedScene" uid="uid://dohm8ruyv6aom" path="res://scenes/bubble_pop.tscn" id="28_crmov"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j0jm3"]
 texture = ExtResource("2_l65qr")
@@ -638,5 +639,13 @@ motion_mirroring = Vector2(1280, 720)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer8"]
 texture = ExtResource("27_q1y3a")
 centered = false
+
+[node name="bubble_pop" parent="." instance=ExtResource("28_crmov")]
+position = Vector2(790, 416)
+scale = Vector2(-0.177713, 0.1713)
+
+[node name="bubble_pop2" parent="." instance=ExtResource("28_crmov")]
+position = Vector2(259, -105)
+scale = Vector2(0.209256, 0.203447)
 
 [connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]
