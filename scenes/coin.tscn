@@ -197,7 +197,7 @@ _data = {
 }
 
 [node name="coin" type="Area2D"]
-collision_mask = 2
+collision_layer = 8
 script = ExtResource("1_h1a6d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

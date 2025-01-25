@@ -122,8 +122,10 @@ func handle_kill_zone(body):
 
 func add_gem():
 	player_stats["gems"]+=1
-	player_stats["score"]+=10
+	player_stats["score"]+=20
+	print(player_stats)
 	
 func add_coin():
 	player_stats["coins"]+=1
-	player_stats["score"]+=100
+	player_stats["score"]+=10
+	print(player_stats)
