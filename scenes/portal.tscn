@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dp3t42xdm01sk"]
+[gd_scene load_steps=11 format=3 uid="uid://dp3t42xdm01sk"]
 
 [ext_resource type="Texture2D" uid="uid://bau8ye7jybngw" path="res://assets/portal/Dimensional_Portal.png" id="1_72mik"]
+[ext_resource type="Script" path="res://scenes/portal.gd" id="1_js3g1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fct1c"]
 radius = 38.0
@@ -57,6 +58,7 @@ animations = [{
 }]
 
 [node name="portal" type="Node2D"]
+script = ExtResource("1_js3g1")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -69,3 +71,5 @@ scale = Vector2(5.625, 4.9375)
 sprite_frames = SubResource("SpriteFrames_bjbe1")
 autoplay = "default"
 frame_progress = 0.126244
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

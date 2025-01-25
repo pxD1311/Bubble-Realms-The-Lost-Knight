@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv2qg71o1yqwx"]
+
+[ext_resource type="Texture2D" uid="uid://3vrfc5yw17pi" path="res://assets/images/bubbles/bubble_5.png" id="1_p1mhh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jw2k"]
+size = Vector2(53, 5)
+
+[node name="CircularBubble" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_p1mhh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 18.5)
+shape = SubResource("RectangleShape2D_8jw2k")

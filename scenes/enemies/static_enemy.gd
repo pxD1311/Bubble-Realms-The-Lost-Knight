@@ -5,12 +5,18 @@ signal enemy_died(xp_reward)
 @export var damage_per_second := 15
 @export var xp_reward := 10
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 @onready var damage_timer = $Damage_timer
 
 
 var current_health : int
 
+@export var flip: bool
+
 func _ready():
+	if flip:
+		animated_sprite_2d.flip_h = true
 	add_to_group("enemies")
 	current_health = max_health
 	# Configure damage timer
