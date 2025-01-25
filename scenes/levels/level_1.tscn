@@ -1,11 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://bxmccvb40m404"]
+[gd_scene load_steps=29 format=3 uid="uid://bxmccvb40m404"]
 
 [ext_resource type="PackedScene" uid="uid://ca4001x6u8rb2" path="res://scenes/character.tscn" id="1_domwe"]
 [ext_resource type="Texture2D" uid="uid://omd4qrxtweg" path="res://assets/tileset/Tileset.png" id="2_l65qr"]
 [ext_resource type="Texture2D" uid="uid://c0rfmlxi3vjk2" path="res://assets/images/3 Objects/Boxes/1.png" id="3_vulny"]
 [ext_resource type="PackedScene" uid="uid://c7k3jhihvelis" path="res://scenes/bubble.tscn" id="4_vecjc"]
 [ext_resource type="Texture2D" uid="uid://bul8a0qbtty5t" path="res://assets/images/3 Objects/Fence/2.png" id="5_scteb"]
-[ext_resource type="PackedScene" uid="uid://cqdw4joc2hihe" path="res://scenes/coin.tscn" id="5_wp5aq"]
+[ext_resource type="PackedScene" uid="uid://d3w3efhgvj8ka" path="res://scenes/coin.tscn" id="5_wp5aq"]
 [ext_resource type="Texture2D" uid="uid://c7ftyvo5hrhq7" path="res://assets/images/3 Objects/Fence/3.png" id="6_t3m8a"]
 [ext_resource type="Texture2D" uid="uid://2hjc734dd0fw" path="res://assets/images/3 Objects/Ladders/4.png" id="7_7t06v"]
 [ext_resource type="Texture2D" uid="uid://dx8pqbeb83xrt" path="res://assets/images/3 Objects/Ladders/3.png" id="8_ruxlq"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://cvxpnkq382xqw" path="res://assets/images/3 Objects/Boxes/6.png" id="14_sr2ic"]
 [ext_resource type="PackedScene" uid="uid://dp3t42xdm01sk" path="res://scenes/portal.tscn" id="16_camjo"]
 [ext_resource type="PackedScene" uid="uid://b4yfxnk068hvi" path="res://scenes/gem.tscn" id="17_ifwtf"]
+[ext_resource type="Script" path="res://scripts/killzone.gd" id="18_auh3k"]
+[ext_resource type="PackedScene" uid="uid://vjd8hn0f8rkm" path="res://scenes/enemies/blue_slime.tscn" id="19_k75iq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j0jm3"]
 texture = ExtResource("2_l65qr")
@@ -386,15 +388,18 @@ _data = {
 "up_down": SubResource("Animation_f0ufp")
 }
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nj2bp"]
+
 [node name="Level 1" type="Node2D"]
 
 [node name="Character" parent="." instance=ExtResource("1_domwe")]
 position = Vector2(-32, -21)
-collision_mask = 3
 
 [node name="Camera2D" type="Camera2D" parent="Character"]
 position = Vector2(-1, 4)
 zoom = Vector2(4, 4)
+limit_bottom = 750
+limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -522,7 +527,35 @@ position = Vector2(941, 535)
 position = Vector2(442, -10)
 
 [node name="gem2" parent="gems" instance=ExtResource("17_ifwtf")]
-position = Vector2(885, 430)
+position = Vector2(937, 375)
 
 [node name="gem3" parent="gems" instance=ExtResource("17_ifwtf")]
 position = Vector2(628, -50)
+
+[node name="killzone" type="Area2D" parent="."]
+position = Vector2(263, 718)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("18_auh3k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+shape = SubResource("WorldBoundaryShape2D_nj2bp")
+
+[node name="enemies" type="Node" parent="."]
+
+[node name="BlueSlime" parent="enemies" instance=ExtResource("19_k75iq")]
+position = Vector2(186, -172)
+
+[node name="BlueSlime2" parent="enemies" instance=ExtResource("19_k75iq")]
+position = Vector2(398, -12)
+
+[node name="BlueSlime3" parent="enemies" instance=ExtResource("19_k75iq")]
+position = Vector2(652, -43)
+
+[node name="BlueSlime4" parent="enemies" instance=ExtResource("19_k75iq")]
+position = Vector2(837, 180)
+
+[node name="BlueSlime5" parent="enemies" instance=ExtResource("19_k75iq")]
+position = Vector2(1032, 533)
+
+[connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]
