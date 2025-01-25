@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv2qg71o1yqwx"]
+[gd_scene load_steps=4 format=3 uid="uid://cv2qg71o1yqwx"]
 
+[ext_resource type="Script" path="res://scripts/circular_bubble.gd" id="1_a5kh4"]
 [ext_resource type="Texture2D" uid="uid://3vrfc5yw17pi" path="res://assets/images/bubbles/bubble_5.png" id="1_p1mhh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8jw2k"]
 size = Vector2(53, 5)
 
 [node name="CircularBubble" type="AnimatableBody2D"]
+script = ExtResource("1_a5kh4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_p1mhh")

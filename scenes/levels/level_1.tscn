@@ -393,10 +393,19 @@ shape = SubResource("WorldBoundaryShape2D_nj2bp")
 position = Vector2(183, -172)
 
 [node name="Static Enemy2" parent="enemies" instance=ExtResource("19_k75iq")]
+position = Vector2(398, -12)
 
 [node name="Static Enemy3" parent="enemies" instance=ExtResource("19_k75iq")]
+position = Vector2(908, 373)
+
+[node name="Static Enemy5" parent="enemies" instance=ExtResource("19_k75iq")]
+position = Vector2(651, -44)
+
+[node name="Static Enemy6" parent="enemies" instance=ExtResource("19_k75iq")]
+position = Vector2(1033, 532)
 
 [node name="Static Enemy4" parent="enemies" instance=ExtResource("19_k75iq")]
+position = Vector2(875, 180)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
