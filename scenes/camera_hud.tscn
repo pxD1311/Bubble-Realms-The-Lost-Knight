@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://c82fmj21t6a5w"]
+
+[ext_resource type="Script" path="res://scenes/levels/camera_2d.gd" id="1_71hpg"]
+[ext_resource type="FontFile" uid="uid://b6nrqngnoj5cy" path="res://assets/fonts/PixelOperator8.ttf" id="2_ldc8l"]
+
+[node name="CameraHud" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 100
+zoom = Vector2(4, 4)
+limit_smoothed = true
+script = ExtResource("1_71hpg")
+
+[node name="Label1" type="Label" parent="Camera2D"]
+offset_left = -239.0
+offset_top = -133.0
+offset_right = -199.0
+offset_bottom = -110.0
+theme_override_fonts/font = ExtResource("2_ldc8l")
+theme_override_font_sizes/font_size = 8
+
+[node name="Label2" type="Label" parent="Camera2D"]
+offset_left = -239.0
+offset_top = -122.0
+offset_right = -199.0
+offset_bottom = -99.0
+theme_override_fonts/font = ExtResource("2_ldc8l")
+theme_override_font_sizes/font_size = 8
+
+[node name="Label3" type="Label" parent="Camera2D"]
+offset_left = -240.0
+offset_top = 127.0
+offset_right = -200.0
+offset_bottom = 150.0
+theme_override_fonts/font = ExtResource("2_ldc8l")
+theme_override_font_sizes/font_size = 8
+
+[node name="Label4" type="Label" parent="Camera2D"]
+offset_left = -240.0
+offset_top = 112.0
+offset_right = -200.0
+offset_bottom = 135.0
+theme_override_fonts/font = ExtResource("2_ldc8l")
+theme_override_font_sizes/font_size = 8
+
+[node name="Label5" type="Label" parent="Camera2D"]
+offset_left = 190.0
+offset_top = -134.0
+offset_right = 230.0
+offset_bottom = -111.0
+theme_override_fonts/font = ExtResource("2_ldc8l")
+theme_override_font_sizes/font_size = 8

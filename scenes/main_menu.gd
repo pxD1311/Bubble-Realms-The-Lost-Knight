@@ -1,11 +1,13 @@
 extends Control
 
-
-@onready var start_button = $VBoxContainer/Start
+@onready var start_button: Button = $VBoxContainer/Start
 @onready var options_button = $VBoxContainer/Options
 @onready var quit_button = $VBoxContainer/Quit
 
 func _ready():
+	start_button.mouse_entered.connect(func() : start_button.grab_focus())
+	start_button.focus_entered.connect(func(): start_button.modulate = Color(1.2, 1.2, 1.2))
+	start_button.focus_exited.connect(func(): start_button.modulate = Color.WHITE)
 	# Connect buttons
 	start_button.pressed.connect(_on_start_pressed)
 	options_button.pressed.connect(_on_options_pressed)

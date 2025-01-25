@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://dlngoueqihdaj"]
+[gd_scene load_steps=59 format=3 uid="uid://dlngoueqihdaj"]
 
 [ext_resource type="Texture2D" uid="uid://do8k5oktkydjd" path="res://assets/tileset/Tileset_pth.png" id="1_12euc"]
 [ext_resource type="PackedScene" uid="uid://rs3y5vwajv1w" path="res://scenes/shop.tscn" id="2_mubyf"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://c7k3jhihvelis" path="res://scenes/bubble.tscn" id="30_vathm"]
 [ext_resource type="PackedScene" uid="uid://b4vux1w3on4xj" path="res://scenes/character.tscn" id="31_rf1li"]
 [ext_resource type="PackedScene" uid="uid://dp3t42xdm01sk" path="res://scenes/portal.tscn" id="32_coy5d"]
+[ext_resource type="PackedScene" uid="uid://c82fmj21t6a5w" path="res://scenes/camera_hud.tscn" id="32_d6f6s"]
 [ext_resource type="Texture2D" uid="uid://q6f1bewdx1cg" path="res://assets/hub_background_layers/Layer_0000_9.png" id="33_ymekk"]
 [ext_resource type="Texture2D" uid="uid://usbl4uh3lf2p" path="res://assets/hub_background_layers/Layer_0001_8.png" id="34_ncjkd"]
 [ext_resource type="Texture2D" uid="uid://bdaw3fm5jqth0" path="res://assets/hub_background_layers/Layer_0002_7.png" id="35_ptenq"]
@@ -428,10 +429,7 @@ autoplay = "up_down"
 z_index = 5
 position = Vector2(138, 281)
 
-[node name="Camera2D" type="Camera2D" parent="Character"]
-zoom = Vector2(4, 4)
-limit_smoothed = true
-position_smoothing_enabled = true
+[node name="CameraHud" parent="Character" instance=ExtResource("32_d6f6s")]
 
 [node name="portal" parent="." instance=ExtResource("32_coy5d")]
 position = Vector2(29, 224)

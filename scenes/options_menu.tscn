@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://c8kakac6atceq"]
 
 [ext_resource type="Script" path="res://scripts/options_menu.gd" id="1_y861n"]
-[ext_resource type="Texture2D" uid="uid://8bfxwg2wmfwx" path="res://assets/images/wrzjDx.png" id="2_choba"]
+[ext_resource type="Texture2D" uid="uid://dfkypuwynstps" path="res://assets/images/wrzjDx.png" id="2_choba"]
 [ext_resource type="Texture2D" uid="uid://b75g5ppynyxhp" path="res://assets/images/GUI.png" id="2_yghgc"]
 [ext_resource type="FontFile" uid="uid://b6nrqngnoj5cy" path="res://assets/fonts/PixelOperator8.ttf" id="3_0yntl"]
 [ext_resource type="Texture2D" uid="uid://d746bp8hobc5" path="res://assets/images/bubbles/bubble_1.png" id="5_ymdx1"]
@@ -63,12 +63,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_ei2fl"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_81ykw"]
 resource_name = "new_animation"
 loop_mode = 2
-
-[sub_resource type="Animation" id="Animation_ei2fl"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sydnb"]
 _data = {

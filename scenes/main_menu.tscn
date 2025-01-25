@@ -137,7 +137,7 @@ theme_override_constants/separation = 21
 alignment = 1
 
 [node name="Start" type="Button" parent="VBoxContainer"]
-z_index = 1
+z_index = 20
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
@@ -149,7 +149,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_t7qxi")
 text = "Start"
 
 [node name="Options" type="Button" parent="VBoxContainer"]
-z_index = 1
+z_index = 20
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("5_jyhcd")
@@ -160,7 +160,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_t7qxi")
 text = "Options"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
-z_index = 1
+z_index = 20
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("5_jyhcd")

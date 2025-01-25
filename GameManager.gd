@@ -9,17 +9,17 @@ var autosave_timer = 0.0
 var autosave_interval = 60.0  # Autosave every 60 seconds
 
 # Player stats
-var player_stats = {"hp": 100, "attack": 10, "xp": 0, "level": 1, "score": 0, "gems" : 0, "coins" : 0}
+var player_stats = {"hp": 100, "attack": 10, "xp": 0, "level": 1, "score": 0, "gems": 0, "coins": 0}
+var player_stats_max = {"hp": 100, "attack": 10, "xp": 0, "level": 1, "score": 0, "gems": 0, "coins": 0}
 
-var levels_unlocked : int = 0
+var levels_unlocked: int = 0
 # Store the current scene path for restarting
 var current_scene_path = ""
 
 func _ready():
-	# Set the initial state or load saved game data
-	call_deferred("load_scene", "res://scenes/levels/hub.tscn")
-	# Optionally load a main menu instead
-	# load_main_menu()
+	# Load saved data on game start
+	load_game()
+	call_deferred("load_scene", "res://scenes/levels/main_menu.tscn")
 
 func _process(delta):
 	if current_state == GameState.PLAYING:
@@ -55,7 +55,7 @@ func resume_game():
 # Scene loading
 func load_main_menu():
 	load_scene("res://scenes/main_menu.tscn")
-#Hub
+
 func load_hub():
 	load_scene("res://scenes/levels/hub.tscn")
 
@@ -75,7 +75,11 @@ func restart_scene():
 
 # Save and load game
 func save_game():
-	var save_data = {"player_stats": player_stats, "current_state": current_state}
+	var save_data = {
+		"player_stats": player_stats,
+		"current_state": current_state,
+		"levels_unlocked": levels_unlocked
+	}
 	var file = FileAccess.open("user://save_game.dat", FileAccess.WRITE)
 	if file:
 		file.store_var(save_data)
@@ -90,9 +94,10 @@ func load_game():
 		if file:
 			var save_data = file.get_var()
 			file.close()
-			if save_data.has("player_stats") and save_data.has("current_state"):
+			if save_data.has("player_stats") and save_data.has("current_state") and save_data.has("levels_unlocked"):
 				player_stats = save_data["player_stats"]
 				current_state = save_data["current_state"]
+				levels_unlocked = save_data["levels_unlocked"]
 				print("Game loaded successfully.")
 			else:
 				print("Save file is corrupted. Loading defaults.")
@@ -120,16 +125,15 @@ func handle_kill_zone(body):
 		get_tree().create_timer(0.5).timeout.connect(restart_scene)
 
 func add_gem():
-	player_stats["gems"]+=1
-	player_stats["score"]+=20
+	player_stats["gems"] += 1
+	player_stats["score"] += 20
 	print(player_stats)
-	
+
 func add_coin():
-	player_stats["coins"]+=1
-	player_stats["score"]+=10
+	player_stats["coins"] += 1
+	player_stats["score"] += 10
 	print(player_stats)
-	
+
 func add_xp(amount: int):
 	player_stats["xp"] += amount
 	print("Player XP: ", player_stats["xp"])
-	
