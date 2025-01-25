@@ -332,9 +332,6 @@ texture = ExtResource("3_vulny")
 [node name="portal" parent="." instance=ExtResource("16_camjo")]
 position = Vector2(1155, 473)
 
-[node name="portal2" parent="." instance=ExtResource("16_camjo")]
-position = Vector2(-86, -64)
-
 [node name="coins" type="Node" parent="."]
 
 [node name="coin2" parent="coins" instance=ExtResource("5_wp5aq")]
@@ -396,16 +393,10 @@ shape = SubResource("WorldBoundaryShape2D_nj2bp")
 position = Vector2(183, -172)
 
 [node name="Static Enemy2" parent="enemies" instance=ExtResource("19_k75iq")]
-position = Vector2(406, -12)
-
-[node name="Static Enemy5" parent="enemies" instance=ExtResource("19_k75iq")]
-position = Vector2(850, 180)
 
 [node name="Static Enemy3" parent="enemies" instance=ExtResource("19_k75iq")]
-position = Vector2(911, 373)
 
 [node name="Static Enemy4" parent="enemies" instance=ExtResource("19_k75iq")]
-position = Vector2(1043, 533)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
