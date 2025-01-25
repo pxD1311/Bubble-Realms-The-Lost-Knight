@@ -1,5 +1,6 @@
-[gd_scene load_steps=48 format=3 uid="uid://b4vux1w3on4xj"]
+[gd_scene load_steps=49 format=3 uid="uid://b4vux1w3on4xj"]
 
+[ext_resource type="PackedScene" uid="uid://vcqoa87imy2i" path="res://scenes/projectile.tscn" id="1_ripu8"]
 [ext_resource type="Texture2D" uid="uid://15dlunkhfeke" path="res://assets/images/player/AnimationSheet_Character.png" id="2_3af8f"]
 
 [sub_resource type="GDScript" id="GDScript_7woi2"]
@@ -10,11 +11,14 @@ script/source = "extends CharacterBody2D
 @export var jump_force := -300.0
 @export var gravity := 980.0
 @export var crouch_speed := 250.0
+@export var water_blast_scene : PackedScene
+@export var attack_cooldown := 1.0
 
 # Combat parameters
 @export var melee_cooldown := 0.1
 var can_melee := true
 var is_attacking := false
+var can_attack := true
 
 # Animation states
 enum {IDLE, RUN, JUMP, CROUCH, MELEE}
@@ -38,6 +42,9 @@ func handle_input():
 
 func handle_movement(delta):
 	var input_dir = Input.get_axis(\"move_left\", \"move_right\")
+	if input_dir != 0:
+		facing_right = input_dir > 0
+		$AnimatedSprite2D2.flip_h = !facing_right
 	
 	# Horizontal movement
 	if not is_attacking:
@@ -83,6 +90,34 @@ func start_melee_attack():
 	await get_tree().create_timer(melee_cooldown).timeout
 	can_melee = true
 
+func _input(event):
+	if event.is_action_pressed(\"ranged_attack\") and can_attack:
+		shoot_water_blast()
+
+func shoot_water_blast():
+	can_attack=false
+	$AttackCooldown.start(attack_cooldown)
+	
+	#Create Projectile
+	var blast = water_blast_scene.instantiate()
+	blast.direction = Vector2.RIGHT if facing_right else Vector2.LEFT
+	
+	var muzzle_offset = abs($MuzzlePosition.position.x)
+	
+	if facing_right:
+		blast.position = Vector2(global_position.x + muzzle_offset, global_position.y)
+	else:
+		blast.position = Vector2(global_position.x - muzzle_offset, global_position.y)
+	
+	blast.get_node(\"AnimatedSprite2D\").flip_h = !facing_right
+	
+	#if !facing_right:
+		#blast.position.x -= 20
+	get_parent().add_child(blast)
+	
+func _on_attack_cooldown_timeout():
+	can_attack= true
+
 func update_animation():
 	animated_sprite.flip_h = !facing_right
 	
@@ -99,6 +134,76 @@ func update_animation():
 			animated_sprite.play(\"run\")
 		_:
 			animated_sprite.play(\"idle\")
+
+func gain_xp(amount):
+	GameManager.player_stats[\"xp\"] += amount
+	if GameManager.player_stats[\"xp\"] >= xp_to_next_level():
+		level_up()
+
+func xp_to_next_level():
+	return GameManager.player_stats[\"level\"] * 100  # Example formula
+
+func level_up():
+	GameManager.player_stats[\"level\"] += 1
+	GameManager.player_stats[\"attack\"] += 5
+	GameManager.player_stats[\"hp\"] += 20
+	print(\"Leveled up! Current level: \", GameManager.player_stats[\"level\"])
+
+func increase_attack(amount):
+	GameManager.player_stats[\"attack\"] += amount
+	print(\"Attack increased by \", amount, \". Current attack: \", GameManager.player_stats[\"attack\"])
+
+func deal_damage_to_enemy(enemy_hp, critical_hit_chance = 0.1):
+	var damage = GameManager.player_stats[\"attack\"]
+	if randf() < critical_hit_chance:  # 10% chance for a critical hit
+		damage *= 2
+		print(\"Critical hit!\")
+	enemy_hp -= damage
+	print(\"Dealt \", damage, \" damage. Enemy HP left: \", enemy_hp)
+	return enemy_hp  # Return remaining enemy HP
+
+func take_damage(amount):
+	GameManager.player_stats[\"hp\"] -= amount
+	if GameManager.player_stats[\"hp\"] <= 0:
+		GameManager.player_stats[\"hp\"] = 0
+		print(\"Player is dead!\")
+		# Trigger game over logic here
+	else:
+		print(\"Player took \", amount, \" damage. HP: \", GameManager.player_stats[\"hp\"])
+
+func heal_player(amount, max_hp = 200):
+	GameManager.player_stats[\"hp\"] += amount
+	if GameManager.player_stats[\"hp\"] > max_hp:
+		GameManager.player_stats[\"hp\"] = max_hp
+	print(\"Player healed by \", amount, \". HP: \", GameManager.player_stats[\"hp\"])
+
+func revive_player(revive_hp = 50):
+	if GameManager.player_stats[\"hp\"] == 0:
+		GameManager.player_stats[\"hp\"] = revive_hp
+		print(\"Player revived! HP: \", GameManager.player_stats[\"hp\"])
+	else:
+		print(\"Player is not dead. Revival skipped.\")
+
+func increase_score(points):
+	GameManager.player_score += points
+	print(\"Score increased by \", points, \". Current score: \", GameManager.player_score)
+
+func decrease_score(points):
+	GameManager.player_score -= points
+	if GameManager.player_score < 0:
+		GameManager.player_score = 0
+	print(\"Score decreased by \", points, \". Current score: \", GameManager.player_score)
+
+func reset_score():
+	GameManager.player_score = 0
+	print(\"Score reset. Current score: \", GameManager.player_score)
+
+func is_player_dead():
+	return GameManager.player_stats[\"hp\"] <= 0
+	
+func get_player_stats():
+	print(\"Player Stats: \", GameManager.player_stats)
+	return GameManager.player_stats
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8e1el"]
@@ -442,6 +547,7 @@ height = 18.0
 
 [node name="Character" type="CharacterBody2D"]
 script = SubResource("GDScript_7woi2")
+water_blast_scene = ExtResource("1_ripu8")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_62bf1")
@@ -453,6 +559,16 @@ position = Vector2(-1, 1)
 shape = SubResource("CapsuleShape2D_4pkp5")
 
 [node name="CollisionCrouch2" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 7)
+position = Vector2(0, 7)
 shape = SubResource("CapsuleShape2D_tx1a1")
 disabled = true
+
+[node name="MuzzlePosition" type="Marker2D" parent="."]
+position = Vector2(8, 2)
+rotation = -0.00541923
+scale = Vector2(0.92, 1)
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.7
+
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
