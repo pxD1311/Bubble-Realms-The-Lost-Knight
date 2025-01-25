@@ -240,7 +240,7 @@ _data = {
 [node name="Level 1" type="Node2D"]
 
 [node name="Character" parent="." instance=ExtResource("1_domwe")]
-position = Vector2(-32, -21)
+position = Vector2(-13, -18)
 
 [node name="Camera2D" type="Camera2D" parent="Character"]
 position = Vector2(-1, 4)
@@ -331,6 +331,9 @@ texture = ExtResource("3_vulny")
 
 [node name="portal" parent="." instance=ExtResource("16_camjo")]
 position = Vector2(1155, 473)
+
+[node name="portal2" parent="." instance=ExtResource("16_camjo")]
+position = Vector2(-86, -64)
 
 [node name="coins" type="Node" parent="."]
 

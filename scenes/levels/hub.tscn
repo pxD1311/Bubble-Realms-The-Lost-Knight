@@ -420,7 +420,7 @@ autoplay = "up_down"
 
 [node name="Character" parent="." instance=ExtResource("31_rf1li")]
 z_index = 5
-position = Vector2(76, 274)
+position = Vector2(138, 281)
 
 [node name="Camera2D" type="Camera2D" parent="Character"]
 zoom = Vector2(4, 4)
@@ -428,7 +428,7 @@ limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="portal" parent="." instance=ExtResource("32_coy5d")]
-position = Vector2(1116, 253)
+position = Vector2(29, 224)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 offset = Vector2(0, -800)

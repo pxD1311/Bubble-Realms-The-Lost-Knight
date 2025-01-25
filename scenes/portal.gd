@@ -1,8 +1,14 @@
 extends Node2D
 
+@onready var area_2d: Area2D = $Area2D
 
-
-
-
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	get_tree().change_scene_to_file("res://scenes/levels/level_selector.tscn")
+func _process(_delta):
+	# Get a list of all bodies overlapping with the Area2D
+	var overlapping_bodies = area_2d.get_overlapping_bodies()
+	
+	# Check if any of the overlapping bodies is a CharacterBody2D
+	for body in overlapping_bodies:
+		if body is CharacterBody2D:
+			# Change the scene if a CharacterBody2D is detected
+			get_tree().change_scene_to_file("res://scenes/levels/level_selector.tscn")
+			return  # Exit once the scene changes to avoid multiple checks
