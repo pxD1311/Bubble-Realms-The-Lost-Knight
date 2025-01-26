@@ -11,9 +11,8 @@ var autosave_interval = 60.0  # Autosave every 60 seconds
 # Player stats
 var player_stats = {"hp": 100, "attack": 10, "xp": 0, "level": 1, "score": 0, "gems": 0, "coins": 0}
 var player_stats_max = {"hp": 100, "attack": 10, "xp": 0, "level": 1, "score": 0, "gems": 0, "coins": 0}
-var player_stats_previous = {"hp": 100, "attack": 10, "xp": 0, "level": 1, "score": 0, "gems": 0, "coins": 0}
 
-var levels_unlocked: int = 1
+var levels_unlocked: int = 5
 # Store the current scene path for restarting
 var current_scene_path = ""
 
@@ -23,11 +22,6 @@ func _ready():
 	call_deferred("load_scene", "res://scenes/levels/main_menu.tscn")
 
 func _process(delta):
-	if Input.is_action_just_pressed("pause"): 
-		call_deferred("load_scene", "res://scenes/levels/level_selector.tscn")
-		player_stats = player_stats_previous.duplicate()
-		current_scene_path = "res://scenes/levels/level_selector.tscn"
-		
 	if current_state == GameState.PLAYING:
 		autosave_timer += delta
 		if autosave_timer >= autosave_interval:
@@ -123,8 +117,6 @@ func update_ui():
 func handle_kill_zone(body):
 	if body.name == "Character":  # Adjust based on your player node's name
 		print("KillZone: Player entered")
-		print(player_stats, player_stats_previous)
-		player_stats = player_stats_previous.duplicate()
 		current_state = GameState.GAME_OVER  # Change game state
 		player_stats["hp"] = 100  # Update player stats (optional)
 		Engine.time_scale = 0.5  # Slow down the game for effect
