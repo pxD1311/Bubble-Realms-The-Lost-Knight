@@ -1112,7 +1112,7 @@ position = Vector2(854, 226)
 exit = true
 
 [node name="killzone" type="Area2D" parent="."]
-position = Vector2(323, 371)
+position = Vector2(288, 920)
 script = ExtResource("20_cnfqv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]

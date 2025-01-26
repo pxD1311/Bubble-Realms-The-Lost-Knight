@@ -10,11 +10,9 @@ config_version=5
 
 [application]
 
-config/name="Bubble Realms: The Lost Wizard"
+config/name="Bubble Realms: The Lost Knight"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-boot_splash/bg_color=Color(0.317927, 0.173286, 0.734916, 1)
-boot_splash/image="res://assets/main_start_screen.png"
 config/icon="res://icon.svg"
 
 [autoload]
@@ -26,7 +24,6 @@ Music="*res://scenes/music.tscn"
 
 window/size/mode=3
 window/size/borderless=true
-mouse_cursor/custom_image="res://assets/images/Bubble.ani"
 
 [global_group]
 
@@ -84,4 +81,3 @@ pause={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-environment/defaults/default_clear_color=Color(0.214487, 0.237281, 0.63482, 1)
