@@ -1,8 +1,109 @@
-[gd_scene load_steps=3 format=3 uid="uid://c426gotobhc5r"]
+[gd_scene load_steps=18 format=3 uid="uid://c426gotobhc5r"]
 
+[ext_resource type="Texture2D" uid="uid://c78sc37ekmgkx" path="res://assets/free-underwater-enemies-pixel-art-character-pack/mermaid_enemy/Walk2.png" id="1_7b384"]
 [ext_resource type="Script" path="res://scenes/enemies/static_enemy.gd" id="1_j4ovo"]
+[ext_resource type="Texture2D" uid="uid://b8efh6kkcogdg" path="res://assets/free-underwater-enemies-pixel-art-character-pack/mermaid_enemy/Attack.png" id="2_0eb57"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tnhwv"]
+radius = 12.0
+height = 38.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofigl"]
+atlas = ExtResource("1_7b384")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8fid"]
+atlas = ExtResource("1_7b384")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe7k8"]
+atlas = ExtResource("1_7b384")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk107"]
+atlas = ExtResource("1_7b384")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jt6q"]
+atlas = ExtResource("1_7b384")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1der"]
+atlas = ExtResource("1_7b384")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2ld6"]
+atlas = ExtResource("2_0eb57")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnos0"]
+atlas = ExtResource("2_0eb57")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18ic1"]
+atlas = ExtResource("2_0eb57")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1k4kb"]
+atlas = ExtResource("2_0eb57")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fh3pb"]
+atlas = ExtResource("2_0eb57")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rn2op"]
+atlas = ExtResource("2_0eb57")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tj2m7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofigl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8fid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oe7k8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gk107")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jt6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1der")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2ld6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnos0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18ic1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1k4kb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fh3pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rn2op")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
 
 [node name="mermaid" type="Area2D" groups=["enemies"]]
 collision_layer = 2
@@ -10,10 +111,15 @@ collision_mask = 13
 script = ExtResource("1_j4ovo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5.5)
+position = Vector2(-2, 1)
 shape = SubResource("CapsuleShape2D_tnhwv")
 
 [node name="Damage_timer" type="Timer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -1)
+sprite_frames = SubResource("SpriteFrames_tj2m7")
+autoplay = "default"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="Damage_timer" to="." method="_on_damage_timer_timeout"]
