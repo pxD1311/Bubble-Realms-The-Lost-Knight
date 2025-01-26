@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://b4vux1w3on4xj"]
+[gd_scene load_steps=53 format=3 uid="uid://b4vux1w3on4xj"]
 
 [ext_resource type="PackedScene" uid="uid://vcqoa87imy2i" path="res://scenes/projectile.tscn" id="1_ripu8"]
 [ext_resource type="Texture2D" uid="uid://15dlunkhfeke" path="res://assets/images/player/AnimationSheet_Character.png" id="2_3af8f"]
@@ -347,21 +347,37 @@ region = Rect2(192, 256, 32, 32)
 atlas = ExtResource("2_3af8f")
 region = Rect2(224, 256, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2hsdy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_idkn8"]
 atlas = ExtResource("2_3af8f")
 region = Rect2(0, 256, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m3w5r"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hxl0"]
 atlas = ExtResource("2_3af8f")
 region = Rect2(32, 256, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rakdp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fer2v"]
 atlas = ExtResource("2_3af8f")
 region = Rect2(64, 256, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_68ssw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jj2s"]
 atlas = ExtResource("2_3af8f")
 region = Rect2(96, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq5i6"]
+atlas = ExtResource("2_3af8f")
+region = Rect2(128, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srdf3"]
+atlas = ExtResource("2_3af8f")
+region = Rect2(160, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgqkw"]
+atlas = ExtResource("2_3af8f")
+region = Rect2(192, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5w66p"]
+atlas = ExtResource("2_3af8f")
+region = Rect2(224, 256, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fapyp"]
 atlas = ExtResource("2_3af8f")
@@ -510,16 +526,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2hsdy")
+"texture": SubResource("AtlasTexture_idkn8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m3w5r")
+"texture": SubResource("AtlasTexture_1hxl0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rakdp")
+"texture": SubResource("AtlasTexture_fer2v")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_68ssw")
+"texture": SubResource("AtlasTexture_3jj2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iq5i6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srdf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgqkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5w66p")
 }],
 "loop": true,
 "name": &"ranged_attack",
@@ -558,7 +586,7 @@ water_blast_scene = ExtResource("1_ripu8")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_62bf1")
-animation = &"jump"
+animation = &"dying"
 autoplay = "idle"
 
 [node name="CollisionStand2" type="CollisionShape2D" parent="."]

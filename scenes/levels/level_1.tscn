@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bxmccvb40m404"]
+[gd_scene load_steps=48 format=3 uid="uid://bxmccvb40m404"]
 
 [ext_resource type="PackedScene" uid="uid://b4vux1w3on4xj" path="res://scenes/character.tscn" id="1_domwe"]
 [ext_resource type="PackedScene" uid="uid://c82fmj21t6a5w" path="res://scenes/camera_hud.tscn" id="2_5mn0k"]
@@ -245,7 +245,7 @@ _data = {
 [sub_resource type="Animation" id="Animation_du3ty"]
 resource_name = "new_animation"
 length = 4.5
-loop_mode = 2
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -302,6 +302,14 @@ tracks/1/keys = {
 _data = {
 "RESET": SubResource("Animation_qicvw"),
 "new_animation": SubResource("Animation_du3ty")
+}
+
+[sub_resource type="Animation" id="Animation_atisx"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r66vi"]
+_data = {
+"new_animation": SubResource("Animation_atisx")
 }
 
 [node name="Level 1" type="Node2D"]
@@ -455,7 +463,8 @@ shape = SubResource("WorldBoundaryShape2D_nj2bp")
 [node name="enemies" type="Node" parent="."]
 
 [node name="Static Enemy" parent="enemies" instance=ExtResource("19_k75iq")]
-position = Vector2(928, 532)
+position = Vector2(758, 468)
+flip = true
 
 [node name="Static Enemy2" parent="enemies" instance=ExtResource("19_k75iq")]
 position = Vector2(398, -12)
@@ -467,7 +476,7 @@ position = Vector2(908, 373)
 position = Vector2(651, -44)
 
 [node name="Static Enemy6" parent="enemies" instance=ExtResource("19_k75iq")]
-position = Vector2(1033, 532)
+position = Vector2(849, 500)
 
 [node name="Static Enemy4" parent="enemies" instance=ExtResource("19_k75iq")]
 position = Vector2(875, 180)
@@ -481,6 +490,14 @@ libraries = {
 "": SubResource("AnimationLibrary_nkknw")
 }
 autoplay = "new_animation"
+
+[node name="mermaid" parent="enemies" instance=ExtResource("21_3wdgq")]
+position = Vector2(912, 524)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/mermaid"]
+libraries = {
+"": SubResource("AnimationLibrary_r66vi")
+}
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

@@ -116,7 +116,7 @@ func take_damage(amount):
 	GameManager.player_stats["hp"] -= amount
 	if GameManager.player_stats["hp"] <= 0:
 		GameManager.player_stats["hp"] = 0
-		print("Player is dead!")
+		animated_sprite.play("dying")
 		GameManager.game_over()
 	else:
 		print("Player took ", amount, " damage. HP: ", GameManager.player_stats["hp"])

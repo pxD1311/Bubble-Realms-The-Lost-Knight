@@ -53,15 +53,9 @@ shape = SubResource("RectangleShape2D_l3dtl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jk8ah")
-<<<<<<< HEAD
 animation = &"new_animation"
 autoplay = "new_animation"
 frame_progress = 0.539263
-=======
-animation = &""
-autoplay = "default"
-frame_progress = 0.76982
->>>>>>> 59c6f545ebbfb9cea9eb994b79ab366926a91cbe
 flip_h = true
 
 [node name="Damage_timer" type="Timer" parent="."]
