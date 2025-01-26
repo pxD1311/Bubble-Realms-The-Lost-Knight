@@ -19,6 +19,7 @@ shape = SubResource("RectangleShape2D_l3dtl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jk8ah")
+animation = &""
 autoplay = "default"
 frame_progress = 0.76982
 flip_h = true
