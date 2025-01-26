@@ -23,6 +23,11 @@ func _ready():
 	call_deferred("load_scene", "res://scenes/levels/main_menu.tscn")
 
 func _process(delta):
+	if Input.is_action_just_pressed("pause"): 
+		call_deferred("load_scene", "res://scenes/levels/level_selector.tscn")
+		player_stats = player_stats_previous.duplicate()
+		current_scene_path = "res://scenes/levels/level_selector.tscn"
+		
 	if current_state == GameState.PLAYING:
 		autosave_timer += delta
 		if autosave_timer >= autosave_interval:

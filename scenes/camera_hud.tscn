@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c82fmj21t6a5w"]
+[gd_scene load_steps=5 format=3 uid="uid://c82fmj21t6a5w"]
 
 [ext_resource type="Script" path="res://scenes/levels/camera_2d.gd" id="1_71hpg"]
 [ext_resource type="FontFile" uid="uid://b6nrqngnoj5cy" path="res://assets/fonts/PixelOperator8.ttf" id="2_ldc8l"]
+
+[sub_resource type="Theme" id="Theme_3v6ca"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tdph5"]
 
 [node name="CameraHud" type="Node2D"]
 
@@ -16,11 +20,13 @@ offset_left = -240.0
 offset_top = -128.0
 offset_right = -200.0
 offset_bottom = -88.0
+theme = SubResource("Theme_3v6ca")
 
 [node name="level" type="Label" parent="Camera2D/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ldc8l")
 theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_tdph5")
 
 [node name="health" type="Label" parent="Camera2D/VBoxContainer"]
 layout_mode = 2

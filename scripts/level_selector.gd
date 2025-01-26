@@ -6,16 +6,14 @@ extends Control
 @onready var lvl4_button = $MarginContainer/VBoxContainer/level_4
 @onready var lvl5_button = $MarginContainer/VBoxContainer/level_5
 
+var level_buttons = {1: lvl1_button, 2: lvl2_button, 3: lvl3_button, 4: lvl4_button, 5: lvl5_button }
+
 func _ready():
 	lvl1_button.pressed.connect(_on_level_1_pressed)
 	lvl2_button.pressed.connect(_on_level_2_pressed)
 	lvl3_button.pressed.connect(_on_level_3_pressed)
 	lvl4_button.pressed.connect(_on_level_4_pressed)
 	lvl5_button.pressed.connect(_on_level_5_pressed)
-	
-
-
-
 
 func _on_level_1_pressed():
 	if GameManager.levels_unlocked >= 1:
