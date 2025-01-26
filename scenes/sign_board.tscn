@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://duxyydhmo618s" path="res://assets/images/3 Objects/Pointers/8.png" id="2_6b7m8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4sj0h"]
+radius = 21.0238
 
 [node name="SignBoard" type="Area2D"]
 
