@@ -38,7 +38,7 @@
 [ext_resource type="Script" path="res://scripts/sign_board.gd" id="35_tctgy"]
 [ext_resource type="FontFile" uid="uid://b6nrqngnoj5cy" path="res://assets/fonts/PixelOperator8.ttf" id="36_36l4f"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sfv1s"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g2dvl"]
 texture = ExtResource("1_jsm8p")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -166,7 +166,7 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_3kqwb"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_sfv1s")
+sources/1 = SubResource("TileSetAtlasSource_g2dvl")
 
 [sub_resource type="Animation" id="Animation_ucsfd"]
 length = 0.001
@@ -842,6 +842,7 @@ position = Vector2(10, 524)
 
 [node name="portal2" parent="portals" instance=ExtResource("3_y448a")]
 position = Vector2(-252, -107)
+exit = true
 
 [node name="killzone" type="Area2D" parent="."]
 position = Vector2(288, 920)
@@ -1028,10 +1029,7 @@ offset_right = 166.0
 offset_bottom = -3.0
 theme_override_fonts/font = ExtResource("36_36l4f")
 theme_override_font_sizes/font_size = 8
-text = "\"The sunlight is just beyond this portal !\"
-You have WON!!!
-
-GG!"
+text = "\"Only one more level to go!\""
 horizontal_alignment = 1
 vertical_alignment = 1
 

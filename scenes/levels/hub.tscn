@@ -1239,6 +1239,42 @@ these fragile orbs can betray you.\"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="SignBoard4" parent="sign_boards" instance=ExtResource("45_fjcjk")]
+position = Vector2(656, 605)
+script = ExtResource("46_l0fa5")
+
+[node name="Label" type="Label" parent="sign_boards/SignBoard4"]
+offset_left = -150.0
+offset_top = -82.0
+offset_right = 150.0
+offset_bottom = -19.0
+theme_override_fonts/font = ExtResource("47_kv00i")
+theme_override_font_sizes/font_size = 8
+text = "Yes, this shop sells items...
+but those arent useful for wizards
+stuck in a world of bubbles and darkness...
+(just an excuse from game devs
+due to lack of time to implement a shop) "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SignBoard5" parent="sign_boards" instance=ExtResource("45_fjcjk")]
+position = Vector2(1036, 318)
+script = ExtResource("46_l0fa5")
+
+[node name="Label" type="Label" parent="sign_boards/SignBoard5"]
+offset_left = -150.0
+offset_top = -82.0
+offset_right = 150.0
+offset_bottom = -19.0
+theme_override_fonts/font = ExtResource("47_kv00i")
+theme_override_font_sizes/font_size = 8
+text = "Warning! 
+endless void ahead!!
+(weired... arent you an immortal wizard?)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="killzone" type="Area2D" parent="."]
 position = Vector2(361, 882)
 collision_layer = 3
