@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c82fmj21t6a5w"]
+[gd_scene load_steps=5 format=3 uid="uid://c82fmj21t6a5w"]
 
 [ext_resource type="Script" path="res://scenes/levels/camera_2d.gd" id="1_71hpg"]
 [ext_resource type="FontFile" uid="uid://b6nrqngnoj5cy" path="res://assets/fonts/PixelOperator8.ttf" id="2_ldc8l"]
+
+[sub_resource type="Theme" id="Theme_3v6ca"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tdph5"]
 
 [node name="CameraHud" type="Node2D"]
 
@@ -11,50 +15,52 @@ zoom = Vector2(4, 4)
 limit_smoothed = true
 script = ExtResource("1_71hpg")
 
-[node name="health" type="Label" parent="Camera2D"]
-offset_left = -239.0
-offset_top = -133.0
-offset_right = -199.0
-offset_bottom = -110.0
-theme_override_fonts/font = ExtResource("2_ldc8l")
-theme_override_font_sizes/font_size = 8
-
-[node name="level" type="Label" parent="Camera2D"]
-offset_left = -239.0
-offset_top = -121.0
-offset_right = -199.0
-offset_bottom = -98.0
-theme_override_fonts/font = ExtResource("2_ldc8l")
-theme_override_font_sizes/font_size = 8
-
-[node name="coins" type="Label" parent="Camera2D"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D"]
 offset_left = -240.0
-offset_top = 127.0
+offset_top = -128.0
 offset_right = -200.0
-offset_bottom = 150.0
+offset_bottom = -88.0
+theme = SubResource("Theme_3v6ca")
+
+[node name="level" type="Label" parent="Camera2D/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ldc8l")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_tdph5")
+
+[node name="health" type="Label" parent="Camera2D/VBoxContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ldc8l")
 theme_override_font_sizes/font_size = 8
 
-[node name="gems" type="Label" parent="Camera2D"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Camera2D"]
+offset_left = 176.0
+offset_top = 112.0
+offset_right = 216.0
+offset_bottom = 152.0
+
+[node name="xp" type="Label" parent="Camera2D/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ldc8l")
+theme_override_font_sizes/font_size = 8
+
+[node name="score" type="Label" parent="Camera2D/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ldc8l")
+theme_override_font_sizes/font_size = 8
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Camera2D"]
 offset_left = -240.0
-offset_top = 116.0
+offset_top = 112.0
 offset_right = -200.0
-offset_bottom = 139.0
+offset_bottom = 152.0
+
+[node name="coins" type="Label" parent="Camera2D/VBoxContainer3"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ldc8l")
 theme_override_font_sizes/font_size = 8
 
-[node name="score" type="Label" parent="Camera2D"]
-offset_left = 190.0
-offset_top = -134.0
-offset_right = 230.0
-offset_bottom = -111.0
-theme_override_fonts/font = ExtResource("2_ldc8l")
-theme_override_font_sizes/font_size = 8
-
-[node name="xp" type="Label" parent="Camera2D"]
-offset_left = 190.0
-offset_top = -122.0
-offset_right = 230.0
-offset_bottom = -99.0
+[node name="gems" type="Label" parent="Camera2D/VBoxContainer3"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ldc8l")
 theme_override_font_sizes/font_size = 8

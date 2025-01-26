@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Movement parameters
-@export var max_speed := 300.0
+@export var max_speed := 150
 @export var acceleration := 2000.0
 @export var friction := 2000.0
 @export var jump_force := -600.0
