@@ -1,6 +1,94 @@
-[gd_scene load_steps=2 format=3 uid="uid://54bdo07bvv04"]
+[gd_scene load_steps=24 format=3 uid="uid://54bdo07bvv04"]
 
 [ext_resource type="Script" path="res://scripts/level_selector.gd" id="1_x0bis"]
+[ext_resource type="FontFile" uid="uid://8dnqlflne0wv" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_twnjc"]
+[ext_resource type="Texture2D" uid="uid://d0lrlfp0mvy8h" path="res://assets/images/orig_big.png" id="2_ym5qe"]
+[ext_resource type="FontFile" uid="uid://b6nrqngnoj5cy" path="res://assets/fonts/PixelOperator8.ttf" id="3_7jgd2"]
+[ext_resource type="Texture2D" uid="uid://b75g5ppynyxhp" path="res://assets/images/GUI.png" id="4_m4aod"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gpdu8"]
+texture = ExtResource("4_m4aod")
+region_rect = Rect2(145, 81, 46, 14)
+modulate_color = Color(0.813258, 0.813258, 0.813257, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vr064"]
+texture = ExtResource("4_m4aod")
+region_rect = Rect2(145, 81, 46, 14)
+modulate_color = Color(0.577008, 0.577008, 0.577008, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jptp7"]
+texture = ExtResource("4_m4aod")
+region_rect = Rect2(145, 81, 46, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gcrbl"]
+texture = ExtResource("4_m4aod")
+region_rect = Rect2(145, 81, 46, 14)
+modulate_color = Color(0.813258, 0.813258, 0.813257, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q6jtp"]
+texture = ExtResource("4_m4aod")
+region_rect = Rect2(145, 81, 46, 14)
+modulate_color = Color(0.577008, 0.577008, 0.577008, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_crmwg"]
+texture = ExtResource("4_m4aod")
+region_rect = Rect2(145, 81, 46, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f672g"]
+texture = ExtResource("4_m4aod")
+region_rect = Rect2(145, 81, 46, 14)
+modulate_color = Color(0.813258, 0.813258, 0.813257, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sqhgk"]
+texture = ExtResource("4_m4aod")
+region_rect = Rect2(145, 81, 46, 14)
+modulate_color = Color(0.577008, 0.577008, 0.577008, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jos6q"]
+texture = ExtResource("4_m4aod")
+region_rect = Rect2(145, 81, 46, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yegit"]
+texture = ExtResource("4_m4aod")
+region_rect = Rect2(145, 81, 46, 14)
+modulate_color = Color(0.813258, 0.813258, 0.813257, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_idq5r"]
+texture = ExtResource("4_m4aod")
+region_rect = Rect2(145, 81, 46, 14)
+modulate_color = Color(0.577008, 0.577008, 0.577008, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ilo6w"]
+texture = ExtResource("4_m4aod")
+region_rect = Rect2(145, 81, 46, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_har1f"]
+texture = ExtResource("4_m4aod")
+region_rect = Rect2(145, 81, 46, 14)
+modulate_color = Color(0.813258, 0.813258, 0.813257, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g63rb"]
+texture = ExtResource("4_m4aod")
+region_rect = Rect2(145, 81, 46, 14)
+modulate_color = Color(0.577008, 0.577008, 0.577008, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lopik"]
+texture = ExtResource("4_m4aod")
+region_rect = Rect2(145, 81, 46, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lhwkm"]
+texture = ExtResource("4_m4aod")
+region_rect = Rect2(145, 81, 46, 14)
+modulate_color = Color(0.813258, 0.813258, 0.813257, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r1fwj"]
+texture = ExtResource("4_m4aod")
+region_rect = Rect2(145, 81, 46, 14)
+modulate_color = Color(0.577008, 0.577008, 0.577008, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_maoj3"]
+texture = ExtResource("4_m4aod")
+region_rect = Rect2(145, 81, 46, 14)
 
 [node name="level_selector" type="Control"]
 layout_direction = 1
@@ -12,43 +100,131 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x0bis")
 
+[node name="Label" type="Label" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -675.0
+offset_top = -432.0
+offset_right = 675.0
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("2_twnjc")
+theme_override_font_sizes/font_size = 100
+text = "Level Selector"
+uppercase = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -698.0
+offset_top = -242.0
+offset_right = 802.0
+offset_bottom = 680.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ym5qe")
+stretch_mode = 6
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = 542.0
-offset_top = 201.0
-offset_right = 604.0
-offset_bottom = 407.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.5
+offset_top = -168.0
+offset_right = 165.5
+offset_bottom = 269.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 14
 
 [node name="level_1" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_7jgd2")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxTexture_gpdu8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vr064")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jptp7")
 text = "Level 1"
 
 [node name="level_2" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_7jgd2")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxTexture_gcrbl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_q6jtp")
+theme_override_styles/normal = SubResource("StyleBoxTexture_crmwg")
 text = "Level 2"
 
 [node name="level_3" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_7jgd2")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxTexture_f672g")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_sqhgk")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jos6q")
 text = "Level 3
 "
 
 [node name="level_4" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_7jgd2")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxTexture_yegit")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_idq5r")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ilo6w")
 text = "Level 4
 "
 
 [node name="level_5" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_7jgd2")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxTexture_har1f")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_g63rb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_lopik")
 text = "Level 5
 "
 
 [node name="Hub" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_7jgd2")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxTexture_lhwkm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r1fwj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_maoj3")
 text = "Hub
 "
+
+[node name="main menu" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_7jgd2")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxTexture_lhwkm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r1fwj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_maoj3")
+text = "Main Menu"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/level_1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/level_2" to="." method="_on_level_2_pressed"]
@@ -56,3 +232,4 @@ text = "Hub
 [connection signal="pressed" from="MarginContainer/VBoxContainer/level_4" to="." method="_on_level_4_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/level_5" to="." method="_on_level_5_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Hub" to="." method="_on_hub_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/main menu" to="." method="_on_main_menu_pressed"]

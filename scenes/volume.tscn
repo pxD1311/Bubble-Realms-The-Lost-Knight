@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://bv0stbwtvpmfo"]
 
-[ext_resource type="Texture2D" uid="uid://8bfxwg2wmfwx" path="res://assets/images/wrzjDx.png" id="1_hwvf1"]
+[ext_resource type="Texture2D" uid="uid://dfkypuwynstps" path="res://assets/images/wrzjDx.png" id="1_hwvf1"]
 [ext_resource type="Texture2D" uid="uid://d746bp8hobc5" path="res://assets/images/bubbles/bubble_1.png" id="2_dv8l0"]
 [ext_resource type="Texture2D" uid="uid://8wukb7cq5mjk" path="res://assets/images/bubbles/bubble_2.png" id="3_jnhal"]
 [ext_resource type="Texture2D" uid="uid://esj2gtcrks0u" path="res://assets/images/bubbles/bubble_3.png" id="4_7he70"]
@@ -11,6 +11,16 @@
 [ext_resource type="FontFile" uid="uid://b6nrqngnoj5cy" path="res://assets/fonts/PixelOperator8.ttf" id="9_lksqh"]
 [ext_resource type="Script" path="res://scenes/h_slider.gd" id="9_m8kxs"]
 [ext_resource type="Texture2D" uid="uid://b75g5ppynyxhp" path="res://assets/images/GUI.png" id="11_2ceid"]
+
+[sub_resource type="Theme" id="Theme_scwyj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w8p2d"]
+texture = ExtResource("11_2ceid")
+region_rect = Rect2(145, 98, 46, 13)
+
+[sub_resource type="Theme" id="Theme_1yyfp"]
+Button/font_sizes/font_size = 24
+Button/styles/normal = SubResource("StyleBoxTexture_w8p2d")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_beq0l"]
 animations = [{
@@ -41,28 +51,18 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_ei2fl"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_81ykw"]
 resource_name = "new_animation"
 loop_mode = 2
-
-[sub_resource type="Animation" id="Animation_ei2fl"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sydnb"]
 _data = {
 "RESET": SubResource("Animation_ei2fl"),
 "new_animation": SubResource("Animation_81ykw")
 }
-
-[sub_resource type="Theme" id="Theme_scwyj"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w8p2d"]
-texture = ExtResource("11_2ceid")
-region_rect = Rect2(145, 98, 46, 13)
-
-[sub_resource type="Theme" id="Theme_1yyfp"]
-Button/font_sizes/font_size = 24
-Button/styles/normal = SubResource("StyleBoxTexture_w8p2d")
 
 [node name="volume" type="Control"]
 layout_mode = 3
@@ -89,72 +89,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_hwvf1")
 stretch_mode = 6
-
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
-position = Vector2(205, 259)
-scale = Vector2(1.27734, 1.17578)
-sprite_frames = SubResource("SpriteFrames_beq0l")
-autoplay = "default"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D3"]
-libraries = {
-"": SubResource("AnimationLibrary_sydnb")
-}
-
-[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
-position = Vector2(1593, 505)
-scale = Vector2(1.27734, 1.17578)
-sprite_frames = SubResource("SpriteFrames_beq0l")
-autoplay = "default"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D4"]
-libraries = {
-"": SubResource("AnimationLibrary_sydnb")
-}
-
-[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
-position = Vector2(1504, 294)
-scale = Vector2(1.27734, 1.17578)
-sprite_frames = SubResource("SpriteFrames_beq0l")
-autoplay = "default"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D5"]
-libraries = {
-"": SubResource("AnimationLibrary_sydnb")
-}
-
-[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
-position = Vector2(1186, 157)
-scale = Vector2(1.27734, 1.17578)
-sprite_frames = SubResource("SpriteFrames_beq0l")
-autoplay = "default"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D6"]
-libraries = {
-"": SubResource("AnimationLibrary_sydnb")
-}
-
-[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="."]
-position = Vector2(371, 474)
-scale = Vector2(1.27734, 1.17578)
-sprite_frames = SubResource("SpriteFrames_beq0l")
-autoplay = "default"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D7"]
-libraries = {
-"": SubResource("AnimationLibrary_sydnb")
-}
-
-[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="."]
-position = Vector2(551, 202)
-scale = Vector2(1.27734, 1.17578)
-sprite_frames = SubResource("SpriteFrames_beq0l")
-autoplay = "default"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D8"]
-libraries = {
-"": SubResource("AnimationLibrary_sydnb")
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -221,13 +155,76 @@ step = 0.1
 script = ExtResource("9_m8kxs")
 bus_name = "SFX"
 
-[node name="back" type="Button" parent="."]
-offset_left = 803.0
-offset_top = 727.0
-offset_right = 1069.0
-offset_bottom = 868.0
+[node name="back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 size_flags_vertical = 3
 theme = SubResource("Theme_1yyfp")
 theme_override_fonts/font = ExtResource("9_lksqh")
 theme_override_font_sizes/font_size = 50
 text = "Back"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(205, 259)
+scale = Vector2(1.27734, 1.17578)
+sprite_frames = SubResource("SpriteFrames_beq0l")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D3"]
+libraries = {
+"": SubResource("AnimationLibrary_sydnb")
+}
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+position = Vector2(1593, 505)
+scale = Vector2(1.27734, 1.17578)
+sprite_frames = SubResource("SpriteFrames_beq0l")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D4"]
+libraries = {
+"": SubResource("AnimationLibrary_sydnb")
+}
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+position = Vector2(1504, 294)
+scale = Vector2(1.27734, 1.17578)
+sprite_frames = SubResource("SpriteFrames_beq0l")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_sydnb")
+}
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
+position = Vector2(1186, 157)
+scale = Vector2(1.27734, 1.17578)
+sprite_frames = SubResource("SpriteFrames_beq0l")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D6"]
+libraries = {
+"": SubResource("AnimationLibrary_sydnb")
+}
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="."]
+position = Vector2(371, 474)
+scale = Vector2(1.27734, 1.17578)
+sprite_frames = SubResource("SpriteFrames_beq0l")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D7"]
+libraries = {
+"": SubResource("AnimationLibrary_sydnb")
+}
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="."]
+position = Vector2(551, 202)
+scale = Vector2(1.27734, 1.17578)
+sprite_frames = SubResource("SpriteFrames_beq0l")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D8"]
+libraries = {
+"": SubResource("AnimationLibrary_sydnb")
+}
