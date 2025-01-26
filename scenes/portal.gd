@@ -12,5 +12,6 @@ func _process(_delta):
 			# Change the scene if a CharacterBody2D is detected
 			get_tree().change_scene_to_file("res://scenes/levels/level_selector.tscn")
 			if exit:
+				GameManager.player_stats_previous = GameManager.player_stats.duplicate()
 				GameManager.levels_unlocked+=1
 			return  # Exit once the scene changes to avoid multiple checks

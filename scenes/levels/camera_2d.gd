@@ -1,11 +1,12 @@
 extends Camera2D
 
-@onready var health: Label = $health  # For Health
-@onready var level: Label = $level  # For Level
-@onready var coins: Label = $coins  # For Coins
-@onready var gems: Label = $gems  # For Gems
-@onready var score: Label = $score  # For Score
-@onready var xp: Label = $xp  # For Xp
+@onready var level: Label = $VBoxContainer/level
+@onready var health: Label = $VBoxContainer/health
+@onready var xp: Label = $VBoxContainer2/xp
+@onready var score: Label = $VBoxContainer2/score
+@onready var coins: Label = $VBoxContainer3/coins
+@onready var gems: Label = $VBoxContainer3/gems
+
 
 func _process(_delta: float) -> void:
 	health.text = "Health: " + str(GameManager.player_stats["hp"]) + "/" + str(GameManager.player_stats_max["hp"])

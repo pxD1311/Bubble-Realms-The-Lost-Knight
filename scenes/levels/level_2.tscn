@@ -508,7 +508,7 @@ position = Vector2(1695, 466)
 texture = ExtResource("17_f53f5")
 
 [node name="killzone" type="Area2D" parent="."]
-position = Vector2(1001, 719)
+position = Vector2(995, 643)
 script = ExtResource("18_4fkwo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
