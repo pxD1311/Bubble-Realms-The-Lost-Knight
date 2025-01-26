@@ -268,7 +268,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(2.26667, 4.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false]
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_qicvw"]

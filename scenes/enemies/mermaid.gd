@@ -4,8 +4,7 @@ extends Area2D
 @export var damage_per_second := 15
 @export var xp_reward := 10
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D2
 
 @onready var damage_timer: Timer = $Damage_timer
 

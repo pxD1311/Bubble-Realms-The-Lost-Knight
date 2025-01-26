@@ -7,7 +7,7 @@ extends Camera2D
 @onready var score: Label = $score  # For Score
 @onready var xp: Label = $xp  # For Xp
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	health.text = "Health: " + str(GameManager.player_stats["hp"]) + "/" + str(GameManager.player_stats_max["hp"])
 	level.text = "Level: " + str(GameManager.player_stats["level"])
 	coins.text = "Coins: " + str(GameManager.player_stats["coins"])

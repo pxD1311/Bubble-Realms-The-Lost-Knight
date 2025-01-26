@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://c426gotobhc5r"]
 
 [ext_resource type="Texture2D" uid="uid://c78sc37ekmgkx" path="res://assets/free-underwater-enemies-pixel-art-character-pack/mermaid_enemy/Walk2.png" id="1_7b384"]
-[ext_resource type="Script" path="res://scenes/enemies/static_enemy.gd" id="1_j4ovo"]
+[ext_resource type="Script" path="res://scenes/enemies/mermaid.gd" id="1_oktvg"]
 [ext_resource type="Texture2D" uid="uid://b8efh6kkcogdg" path="res://assets/free-underwater-enemies-pixel-art-character-pack/mermaid_enemy/Attack.png" id="2_0eb57"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tnhwv"]
@@ -108,7 +108,7 @@ animations = [{
 [node name="mermaid" type="Area2D" groups=["enemies"]]
 collision_layer = 2
 collision_mask = 13
-script = ExtResource("1_j4ovo")
+script = ExtResource("1_oktvg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 1)
@@ -116,7 +116,7 @@ shape = SubResource("CapsuleShape2D_tnhwv")
 
 [node name="Damage_timer" type="Timer" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -1)
 sprite_frames = SubResource("SpriteFrames_tj2m7")
 autoplay = "default"

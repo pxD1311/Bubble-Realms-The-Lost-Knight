@@ -1,12 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2gyfogrndnrc"]
+[gd_scene load_steps=9 format=3 uid="uid://c2gyfogrndnrc"]
 
 [ext_resource type="Script" path="res://scenes/enemies/static_enemy.gd" id="1_p8hds"]
+[ext_resource type="Texture2D" uid="uid://dc4j8xaou265u" path="res://assets/images/enemy/slime_blue.png" id="1_xed5o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3dtl"]
-size = Vector2(14, 11)
+size = Vector2(12, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ciwnk"]
+atlas = ExtResource("1_xed5o")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm400"]
+atlas = ExtResource("1_xed5o")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihccx"]
+atlas = ExtResource("1_xed5o")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jnkc"]
+atlas = ExtResource("1_xed5o")
+region = Rect2(72, 48, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jk8ah"]
-animations = []
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciwnk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm400")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihccx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jnkc")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
 
 [node name="Static Enemy" type="Area2D" groups=["enemies"]]
 collision_layer = 2
@@ -19,8 +53,9 @@ shape = SubResource("RectangleShape2D_l3dtl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jk8ah")
-autoplay = "default"
-frame_progress = 0.76982
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.539263
 flip_h = true
 
 [node name="Damage_timer" type="Timer" parent="."]
