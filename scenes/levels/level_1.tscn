@@ -397,6 +397,7 @@ texture = ExtResource("3_vulny")
 
 [node name="portal" parent="." instance=ExtResource("16_camjo")]
 position = Vector2(1155, 473)
+exit = true
 
 [node name="portal2" parent="." instance=ExtResource("16_camjo")]
 position = Vector2(-71, -73)

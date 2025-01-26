@@ -417,6 +417,10 @@ autoplay = "new_animation"
 
 [node name="portal" parent="." instance=ExtResource("3_5bl50")]
 position = Vector2(1760, 409)
+exit = true
+
+[node name="portal2" parent="." instance=ExtResource("3_5bl50")]
+position = Vector2(1197, 508)
 
 [node name="Character" parent="." instance=ExtResource("4_v0r6d")]
 position = Vector2(1137, 559)
@@ -502,9 +506,6 @@ texture = ExtResource("16_4i1u8")
 [node name="19" type="Sprite2D" parent="Decorations"]
 position = Vector2(1695, 466)
 texture = ExtResource("17_f53f5")
-
-[node name="portal2" parent="Decorations" instance=ExtResource("3_5bl50")]
-position = Vector2(1197, 508)
 
 [node name="killzone" type="Area2D" parent="."]
 position = Vector2(1001, 719)
