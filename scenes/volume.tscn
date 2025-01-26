@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://bv0stbwtvpmfo"]
+[gd_scene load_steps=20 format=3 uid="uid://bv0stbwtvpmfo"]
 
 [ext_resource type="Texture2D" uid="uid://dfkypuwynstps" path="res://assets/images/wrzjDx.png" id="1_hwvf1"]
 [ext_resource type="Texture2D" uid="uid://d746bp8hobc5" path="res://assets/images/bubbles/bubble_1.png" id="2_dv8l0"]
 [ext_resource type="Texture2D" uid="uid://8wukb7cq5mjk" path="res://assets/images/bubbles/bubble_2.png" id="3_jnhal"]
 [ext_resource type="Texture2D" uid="uid://esj2gtcrks0u" path="res://assets/images/bubbles/bubble_3.png" id="4_7he70"]
 [ext_resource type="Texture2D" uid="uid://bep5j02vf1cdf" path="res://assets/images/bubbles/bubble_4.png" id="5_mslq5"]
+[ext_resource type="Script" path="res://scripts/back_from_volume.gd" id="5_nnr3s"]
 [ext_resource type="Texture2D" uid="uid://3vrfc5yw17pi" path="res://assets/images/bubbles/bubble_5.png" id="6_arsck"]
 [ext_resource type="Texture2D" uid="uid://5iydp2hfaved" path="res://assets/images/bubbles/bubble_6.png" id="7_ims6p"]
 [ext_resource type="Texture2D" uid="uid://7inxxt7560ob" path="res://assets/images/bubbles/bubble_7.png" id="8_0espw"]
@@ -71,6 +72,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("5_nnr3s")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.621524, 0.621524, 0.621524, 1)
@@ -99,8 +101,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -313.0
 offset_top = -295.0
-offset_right = 135.0
-offset_bottom = 4.0
+offset_right = 106.0
+offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.4, 1.44)
@@ -160,7 +162,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = SubResource("Theme_1yyfp")
 theme_override_fonts/font = ExtResource("9_lksqh")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 45
 text = "Back"
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
