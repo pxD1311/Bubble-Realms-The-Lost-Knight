@@ -12,7 +12,7 @@ var autosave_interval = 60.0  # Autosave every 60 seconds
 var player_stats = {"hp": 100, "attack": 10, "xp": 0, "level": 1, "score": 0, "gems": 0, "coins": 0}
 var player_stats_max = {"hp": 100, "attack": 10, "xp": 0, "level": 1, "score": 0, "gems": 0, "coins": 0}
 
-var levels_unlocked: int = 5
+var levels_unlocked: int = 1
 # Store the current scene path for restarting
 var current_scene_path = ""
 
